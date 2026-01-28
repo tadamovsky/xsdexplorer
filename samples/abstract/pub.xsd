@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="Book" type="BookType" substitutionGroup="Publication"/>
+
+	<xsd:element name="Publication" type="PublicationType" abstract="true"/>
+
+	<xsd:element name="Publication2" abstract="true">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Title" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="PublicationType">
+		<xsd:sequence>
+			<xsd:element ref="widget"/>
+			<xsd:element name="Title" type="xsd:string"/>
+			<xsd:element name="Author" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Date" type="xsd:gYear"/>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	
+	<!-- book2 get substitutionGroup type (this is valid!) -->
+	<!-- XmlSpy: example is valid, but diagram show no children (bug) -->
+	<xsd:element name="Book2" substitutionGroup="Publication2"/>
+	
+	<xsd:complexType name="BookType">
+		<xsd:complexContent>
+			<xsd:extension base="PublicationType">
+				<xsd:sequence>
+					<xsd:element name="ISBN" type="xsd:string"/>
+					<xsd:element name="Publisher" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Catalogue">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Publication" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Magazine" type="MagazineType" substitutionGroup="Publication"/>
+	<xsd:complexType name="MagazineType">
+		<xsd:complexContent>
+			<xsd:restriction base="PublicationType">
+				<xsd:sequence>
+					<xsd:element ref="widget"/>
+					<xsd:element name="Title" type="xsd:string"/>
+					<xsd:element name="Author" type="xsd:string" minOccurs="0" maxOccurs="0"/>
+					<xsd:element name="Date" type="xsd:gYear"/>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	
+	<!-- non-asbtract example -->
+	<xsd:element name="widget" type="widgetType"/>
+	<xsd:complexType name="widgetType">
+		<xsd:sequence>
+			<xsd:element name="shape" type="xsd:string"/>
+			<xsd:element ref="Publication"/>
+			<xsd:element name="color" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="part" type="partType"/>
+	<xsd:complexType name="partType">
+		<xsd:sequence>
+			<xsd:element ref="widget"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="plasticWidget" type="plasticWidgetType" substitutionGroup="widget"/>
+	<xsd:complexType name="plasticWidgetType">
+		<xsd:complexContent>
+			<xsd:extension base="widgetType">
+				<xsd:sequence>
+					<xsd:element name="moldProcess" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="woodWidget" type="woodWidgetType" substitutionGroup="widget"/>
+	<xsd:complexType name="woodWidgetType">
+		<xsd:complexContent>
+			<xsd:extension base="widgetType">
+				<xsd:sequence>
+					<xsd:element name="woodType" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

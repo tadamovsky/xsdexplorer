@@ -1,0 +1,2 @@
+Assuming java is java17+ jdk with javaFX modules (provided by Azul for example):
+java -cp "./modules/lib/*" -p ./modules -m xsdexplorer/com.xsdexplorer.XsdExplorer

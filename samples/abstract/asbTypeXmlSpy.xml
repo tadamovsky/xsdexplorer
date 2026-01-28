@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:Catalogue xmlns:ns1="http://test.com/source/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://test.com/source/ absType.xsd">
+	<ns1:Publication xsi:type="ns1:BookType">
+		<ns1:Title>String</ns1:Title>
+		<ns1:Author>String</ns1:Author>
+		<ns1:Author>String</ns1:Author>
+		<ns1:Date>String</ns1:Date>
+		<ns1:ISBN>String</ns1:ISBN>
+	</ns1:Publication>
+	<ns1:Publication xsi:type="ns1:BookType">
+		<ns1:Title>String</ns1:Title>
+		<ns1:Author>String</ns1:Author>
+		<ns1:Author>String</ns1:Author>
+		<ns1:Date>String</ns1:Date>
+		<ns1:ISBN>String</ns1:ISBN>
+	</ns1:Publication>
+</ns1:Catalogue>

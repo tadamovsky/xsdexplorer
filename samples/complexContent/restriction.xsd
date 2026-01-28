@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:complexType name="AAA">
+		<xs:sequence>
+			<xs:element name="AA1" minOccurs="0" type="xs:string"/>
+			<xs:element name="AA2" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BBB">
+		<xs:complexContent>
+			<xs:extension base="AAA">
+				<xs:sequence>
+					<xs:element name="BB" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>		
+	
+	
+	<xs:complexType name="BBBRest">
+		<xs:complexContent>
+			<xs:restriction base="BBB">
+				<xs:sequence>
+					<xs:element name="AA1" type="xs:string"/>
+					<xs:element name="AA2" type="xs:string"/>
+					<xs:element name="BB" type="xs:string" fixed="US"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>	
+	
+	<xs:element name="rootToNonAnonRest" type="BBBRest"/>
+
+	<xs:element name="rootAnonRest">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="BBB">
+					<xs:sequence>
+						<xs:element name="AA1" type="xs:string"/>
+						<xs:element name="AA2" type="xs:string"/>
+						<xs:element name="BB" type="xs:string" fixed="US"/>
+					</xs:sequence>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>	
+	</xs:element>
+	
+</xs:schema>

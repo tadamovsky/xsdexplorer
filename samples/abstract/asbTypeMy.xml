@@ -1,0 +1,8 @@
+<ns0:Catalogue xmlns:ns0="http://test.com/source/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns0:Publication xsi:type="ns0:BookType">
+    <ns0:Title>String</ns0:Title>
+    <ns0:Author>String</ns0:Author>
+    <ns0:Date>String</ns0:Date>
+    <ns0:ISBN>String</ns0:ISBN>
+  </ns0:Publication>
+</ns0:Catalogue>

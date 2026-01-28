@@ -1,0 +1,269 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- extension of seq with additional seq -->
+	<xs:element name="Root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BillingAddress">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="GlobalAddrType">
+								<xs:sequence>
+									<xs:element name="Department" type="xs:string" default="Accounts Payable"/>
+								</xs:sequence>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- extension of seq with additional choice -->
+	<xs:element name="RootExtWithChoice">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BillingAddress"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="GlobalAddrType">
+		<xs:sequence>
+			<xs:element name="Country" type="xs:string"/>
+			<xs:element name="Street" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GlobalAddrType2">
+		<xs:sequence>
+			<xs:element name="Country2" type="xs:string"/>
+			<xs:element name="Street2" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AAA">
+		<xs:sequence>
+			<xs:element name="AA1" type="xs:string"/>
+			<xs:element name="AA2" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="CCCCC" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="BBB">
+		<xs:complexContent>
+			<xs:extension base="AAA">
+				<xs:sequence>
+					<xs:element name="BB" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CCC">
+		<xs:complexContent>
+			<xs:extension base="BBB">
+				<xs:attribute name="DDDD" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ElContinue" type="CCC"/>
+	<xs:complexType name="DDD">
+		<xs:complexContent>
+			<xs:extension base="CCC">
+				<xs:sequence>
+					<xs:element name="DDDD" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ElContinue2" type="DDD"/>
+	<xs:complexType name="EEEE">
+		<xs:complexContent>
+			<xs:extension base="DDD">
+				<xs:attribute name="EEEE" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ElContinue3" type="EEEE"/>
+	<xs:complexType name="FFFF">
+		<xs:complexContent>
+			<xs:extension base="EEEE"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ElContinue4" type="FFFF"/>
+	<xs:complexType name="emptyType"/>
+	<xs:complexType name="ExtEmptyType">
+		<xs:complexContent>
+			<xs:extension base="emptyType">
+				<xs:sequence>
+					<xs:element name="YYYY" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ElEmpty" type="ExtEmptyType"/>
+	<xs:element name="ExtTest5">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="BBB">
+					<xs:attribute name="BBB" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="GlobalAddrTypeExtType">
+		<xs:complexContent>
+			<xs:extension base="BBB">
+				<xs:sequence>
+					<xs:element name="C" type="xs:string"/>
+				</xs:sequence>
+				<xs:attribute name="CCCCCCCC" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- element extending complex type (GlobalAddrTypeExtType) which in turn extend another type (AAA)
+		BillingAddress will have 3 seq children, first seq with A,B, second with C, third with D
+		XMLSpy will seq 1 and 2 under GlobalAddrTypeExtType (no mention of AAA type unless GlobalAddrTypeExtType is opened by itself) -->
+	<xs:element name="RootExtComplexTypeExtComplexType">
+		<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="GlobalAddrTypeExtType">
+								<xs:sequence>
+									<xs:element name="D" type="xs:string"/>
+								</xs:sequence>
+								<xs:attribute name="EEEE" type="xs:string"/>
+							</xs:extension>
+						</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RootNonAnonExtComplexTypeExtComplexType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BillingAddress" type="GlobalAddrTypeExtType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- No extension equivalent of first "Root" element 
+		sequence -> going to 2 seq, note in first example XMPSPY will not show first seq - it is implicit
+	-->
+	<xs:element name="SameAsRootNoExtensions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BillingAddress">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:sequence>
+								<xs:element name="Country" type="xs:string"/>
+								<xs:element name="Street" type="xs:string"/>
+							</xs:sequence>
+							<xs:sequence>
+								<xs:element name="Department" type="xs:string" default="Accounts Payable"/>
+							</xs:sequence>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--
+		cases for extension of attr only type:
+		1. extend with another attr ExtTest1
+		2. extend with another attr and element ExtTest2
+		3. extend few times with another attr ExtOfExtOfExtOfAttrOnlyTypeEl
+		4. extend few times with another attr and el 
+	-->
+	<xs:complexType name="AttrOnlyType">
+		<xs:attribute name="Attr1" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="ExtTest1">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="AttrOnlyType">
+					<xs:attribute name="Attr2" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ExtTest2">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="AttrOnlyType">
+					<xs:sequence>
+						<xs:element name="D" type="xs:string"/>
+					</xs:sequence>
+					<xs:attribute name="Attr2" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ExtOfAttrOnlyType">
+		<xs:complexContent>
+			<xs:extension base="AttrOnlyType">
+				<xs:attribute name="Attr2" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExtOfExtOfAttrOnlyType">
+		<xs:complexContent>
+			<xs:extension base="ExtOfAttrOnlyType">
+				<xs:attribute name="Attr3" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExtOfExtOfExtOfAttrOnlyType">
+		<xs:complexContent>
+			<xs:extension base="ExtOfExtOfAttrOnlyType">
+				<xs:sequence>
+					<xs:element name="C" type="xs:string"/>
+				</xs:sequence>
+				<xs:attribute name="Attr4" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ExtTest3">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ExtOfExtOfExtOfAttrOnlyType">
+					<xs:attribute name="Attr5" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ExtTest4">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ExtOfExtOfExtOfAttrOnlyType">
+					<xs:sequence>
+						<xs:element name="D" type="xs:string"/>
+					</xs:sequence>
+					<xs:attribute name="Attr5" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HEADER">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element name="HEAD" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="Label" type="xs:string" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Label" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BillingAddress">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="GlobalAddrType">
+					<xs:choice>
+						<xs:element name="Department2" type="xs:string" default="Accounts Payable2"/>
+						<xs:sequence>
+							<xs:element name="addr2" type="GlobalAddrType2"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:attribute name="aaa" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

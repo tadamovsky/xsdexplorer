@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sea name="Atlantic Ocean">
+  <Tuna name="tuna1"/>
+  <Carp name="carp1"/>
+  <Carp name="carp2"/>
+  <Tuna name="tuna2"/>
+  <Salmon name="salmon1"/>
+</Sea>

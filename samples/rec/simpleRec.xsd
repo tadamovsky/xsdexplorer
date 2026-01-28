@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://test.com/source/" targetNamespace="http://test.com/source/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="locale" type="ns1:localeType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="localeType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="locales">
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="locale" type="ns1:localeType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

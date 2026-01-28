@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Define a global complex type with xs:any as a wildcard -->
+	<xs:complexType name="AnyType">
+		<xs:sequence>
+			<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Define another global complex type that extends AnyType -->
+	<xs:complexType name="ExtendedAnyType">
+		<xs:complexContent>
+			<xs:extension base="AnyType">
+				<xs:attribute name="exampleAttribute" type="xs:string"/>
+			</xs:extension>
+			<!-- Add additional elements or attributes here -->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ExtendedAnyType2">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType">
+				<xs:attribute name="exampleAttribute2" type="xs:int"/>
+			</xs:extension>
+			<!-- Add additional elements or attributes here -->
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Use the extended type in an element -->
+	<xs:element name="ExampleElement" type="ExtendedAnyType"/>
+	<xs:element name="AnyExtend" type="ExtendedAnyType2"/>
+</xs:schema>

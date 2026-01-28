@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:notation name="jpeg" public="image/jpeg" system="file:///usr/bin/xv"/>
+	<xs:notation name="png" public="image/gif" system="file:///usr/bin/xv"/>
+	<xs:simpleType name="notationType">
+		<xs:restriction base="xs:NOTATION">
+			<xs:enumeration value="jpeg"/>
+			<xs:enumeration value="png"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Simple types with various data types -->
+				<!-- String-based types -->
+				<xs:element name="myString" type="xs:string"/>
+				<xs:element name="myNormalizedString" type="xs:normalizedString"/>
+				<xs:element name="myToken" type="xs:token"/>
+				<xs:element name="myLanguage" type="xs:language"/>
+				<xs:element name="myNMTOKEN" type="xs:NMTOKEN"/>
+				<xs:element name="myNMTOKENS" type="xs:NMTOKENS"/>
+				<xs:element name="myName" type="xs:Name"/>
+				<xs:element name="myNCName" type="xs:NCName"/>
+				<xs:element name="myID" type="xs:ID"/>
+				<xs:element name="myIDREF" type="xs:IDREF"/>
+				<xs:element name="myIDREFS" type="xs:IDREFS"/>
+				<!-- DTD reference
+				<xs:element name="myENTITY" type="xs:ENTITY"/>
+				<xs:element name="myENTITIES" type="xs:ENTITIES"/>
+				-->
+				<!-- Numeric types -->
+				<xs:element name="myInteger" type="xs:integer"/>
+				<xs:element name="myNonPositiveInteger" type="xs:nonPositiveInteger"/>
+				<xs:element name="myNegativeInteger" type="xs:negativeInteger"/>
+				<xs:element name="myLong" type="xs:long"/>
+				<xs:element name="myInt" type="xs:int"/>
+				<xs:element name="myShort" type="xs:short"/>
+				<xs:element name="myByte" type="xs:byte"/>
+				<xs:element name="myNonNegativeInteger" type="xs:nonNegativeInteger"/>
+				<xs:element name="myUnsignedLong" type="xs:unsignedLong"/>
+				<xs:element name="myUnsignedInt" type="xs:unsignedInt"/>
+				<xs:element name="myUnsignedShort" type="xs:unsignedShort"/>
+				<xs:element name="myUnsignedByte" type="xs:unsignedByte"/>
+				<xs:element name="myPositiveInteger" type="xs:positiveInteger"/>
+				<xs:element name="myDecimal" type="xs:decimal"/>
+				<xs:element name="myFloat" type="xs:float"/>
+				<xs:element name="myDouble" type="xs:double"/>
+				<!-- Date and time types -->
+				<xs:element name="myDuration" type="xs:duration"/>
+				<xs:element name="myDateTime" type="xs:dateTime"/>
+				<xs:element name="myTime" type="xs:time"/>
+				<xs:element name="myDate" type="xs:date"/>
+				<xs:element name="myGYearMonth" type="xs:gYearMonth"/>
+				<xs:element name="myGYear" type="xs:gYear"/>
+				<xs:element name="myGMonthDay" type="xs:gMonthDay"/>
+				<xs:element name="myGDay" type="xs:gDay"/>
+				<xs:element name="myGMonth" type="xs:gMonth"/>
+				<!-- Miscellaneous types -->
+				<xs:element name="myBoolean" type="xs:boolean"/>
+				<xs:element name="myBase64Binary" type="xs:base64Binary"/>
+				<xs:element name="myHexBinary" type="xs:hexBinary"/>
+				<xs:element name="myAnyURI" type="xs:anyURI"/>
+				<xs:element name="myQName" type="xs:QName"/>
+				<xs:element name="myNOTATION" type="notationType"/>
+				
+				<!-- Complex mixed -->
+				<xs:element name="noContent"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

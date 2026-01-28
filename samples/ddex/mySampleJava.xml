@@ -1,0 +1,1682 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<n2:NewReleaseMessage xmlns:n1="http://ddex.net/xml/avs/avs" xmlns:n2="http://ddex.net/xml/ern/42" ReleaseProfileVersionId="Audio" ReleaseProfileVariantVersionId="BoxedSet" LanguageAndScriptCode="rn-Ydsy0u7nG">
+  <MessageHeader>
+    <MessageThreadId>String</MessageThreadId>
+    <MessageId>String</MessageId>
+    <MessageFileName>String</MessageFileName>
+    <MessageSender>
+      <PartyId>PADPIDAA2</PartyId>
+      <PartyName>
+        <FullName>String</FullName>
+        <FullNameAsciiTranscribed>String</FullNameAsciiTranscribed>
+        <FullNameIndexed>String</FullNameIndexed>
+        <NamesBeforeKeyName>String</NamesBeforeKeyName>
+        <KeyName>String</KeyName>
+        <NamesAfterKeyName>String</NamesAfterKeyName>
+        <AbbreviatedName>String</AbbreviatedName>
+      </PartyName>
+      <TradingName>String</TradingName>
+    </MessageSender>
+    <SentOnBehalfOf>
+      <PartyId>PADPIDAJ</PartyId>
+      <PartyName>
+        <FullName>String</FullName>
+        <FullNameAsciiTranscribed>String</FullNameAsciiTranscribed>
+        <FullNameIndexed>String</FullNameIndexed>
+        <NamesBeforeKeyName>String</NamesBeforeKeyName>
+        <KeyName>String</KeyName>
+        <NamesAfterKeyName>String</NamesAfterKeyName>
+        <AbbreviatedName>String</AbbreviatedName>
+      </PartyName>
+      <TradingName>String</TradingName>
+    </SentOnBehalfOf>
+    <MessageRecipient>
+      <PartyId>PADPIDA34</PartyId>
+      <PartyName>
+        <FullName>String</FullName>
+        <FullNameAsciiTranscribed>String</FullNameAsciiTranscribed>
+        <FullNameIndexed>String</FullNameIndexed>
+        <NamesBeforeKeyName>String</NamesBeforeKeyName>
+        <KeyName>String</KeyName>
+        <NamesAfterKeyName>String</NamesAfterKeyName>
+        <AbbreviatedName>String</AbbreviatedName>
+      </PartyName>
+      <TradingName>String</TradingName>
+    </MessageRecipient>
+    <MessageCreatedDateTime>2001-10-26T21:32:52+02:00</MessageCreatedDateTime>
+    <MessageAuditTrail>
+      <MessageAuditTrailEvent>
+        <MessagingPartyDescriptor>
+          <PartyId>PADPIDA7xXi1hGJ</PartyId>
+          <PartyName>
+            <FullName>String</FullName>
+            <FullNameAsciiTranscribed>String</FullNameAsciiTranscribed>
+            <FullNameIndexed>String</FullNameIndexed>
+            <NamesBeforeKeyName>String</NamesBeforeKeyName>
+            <KeyName>String</KeyName>
+            <NamesAfterKeyName>String</NamesAfterKeyName>
+            <AbbreviatedName>String</AbbreviatedName>
+          </PartyName>
+          <TradingName>String</TradingName>
+        </MessagingPartyDescriptor>
+        <DateTime>2001-10-26T21:32:52+02:00</DateTime>
+      </MessageAuditTrailEvent>
+    </MessageAuditTrail>
+    <MessageControlType>LiveMessage</MessageControlType>
+  </MessageHeader>
+  <ReleaseAdmin>
+    <ReleaseAdminId>String</ReleaseAdminId>
+    <PersonnelDescription>String</PersonnelDescription>
+    <SystemDescription>String</SystemDescription>
+  </ReleaseAdmin>
+  <PartyList>
+    <Party>
+      <PartyReference>P_</PartyReference>
+      <PartyId>
+        <ISNI>String</ISNI>
+        <DPID>PADPIDA4o5a3Sv7</DPID>
+        <IpiNameNumber>51584426790</IpiNameNumber>
+        <IPN>String</IPN>
+        <CisacSocietyId>String</CisacSocietyId>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </PartyId>
+      <Affiliation>
+        <CompanyName>String</CompanyName>
+        <Type>MusicLicensingCompany</Type>
+        <TerritoryCode IdentifierType="ISO">AD</TerritoryCode>
+        <ValidityPeriod>
+          <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">6409</StartDate>
+          <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">4562</EndDate>
+        </ValidityPeriod>
+        <RightsType Namespace="String" UserDefinedValue="String">MakeAvailableRight</RightsType>
+        <PercentageOfRightsAssignment>0.0</PercentageOfRightsAssignment>
+      </Affiliation>
+      <RelatedParty>
+        <PartyRelatedPartyReference>PY-f-wz-_H</PartyRelatedPartyReference>
+        <PartyRelationshipType Namespace="String" UserDefinedValue="String" MayBeShared="false">HasMember</PartyRelationshipType>
+      </RelatedParty>
+      <ArtistProfilePage>String</ArtistProfilePage>
+    </Party>
+  </PartyList>
+  <CueSheetList>
+    <CueSheet>
+      <CueSheetId Namespace="String">String</CueSheetId>
+      <CueSheetReference>QLI</CueSheetReference>
+      <CueSheetType Namespace="String" UserDefinedValue="String">AverageCueSheet</CueSheetType>
+      <Cue>
+        <CueUseType Namespace="String" UserDefinedValue="String">AudioLogo</CueUseType>
+        <CueThemeType Namespace="String" UserDefinedValue="String">ClosingTheme</CueThemeType>
+        <CueVocalType Namespace="String" UserDefinedValue="String">Instrumental</CueVocalType>
+        <CueVisualPerceptionType Namespace="String" UserDefinedValue="String">Background</CueVisualPerceptionType>
+        <CueOrigin Namespace="String" UserDefinedValue="String">LibraryMusic</CueOrigin>
+        <ResourceId IsReplaced="false">
+          <ISRC>String</ISRC>
+          <ISMN>String</ISMN>
+          <ISAN>String</ISAN>
+          <VISAN>String</VISAN>
+          <ISBN>String</ISBN>
+          <ISSN>String</ISSN>
+          <SICI>String</SICI>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ResourceId>
+        <DisplayTitleText LanguageAndScriptCode="WT-H-p48UdR20" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="vDi-398" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="WPJ-T31h3" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <Contributor SequenceNumber="0">
+          <ContributorPartyReference>P-</ContributorPartyReference>
+          <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+          <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+          <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+          <HasMadeContractedContribution>false</HasMadeContractedContribution>
+          <IsCredited MayBeShared="false">false</IsCredited>
+          <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+            <DisplayCreditText>String</DisplayCreditText>
+            <DisplayCreditParty>Pa__TZK_T</DisplayCreditParty>
+            <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+          </DisplayCredits>
+        </Contributor>
+        <IsDance>false</IsDance>
+        <HasMusicalContent>false</HasMusicalContent>
+        <PLine LanguageAndScriptCode="String" PLineType="OriginalPLine">
+          <Year>2001</Year>
+          <PLineCompany>String</PLineCompany>
+          <PLineText>String</PLineText>
+        </PLine>
+        <CLine LanguageAndScriptCode="String">
+          <Year>2001</Year>
+          <CLineCompany>String</CLineCompany>
+          <CLineText>String</CLineText>
+        </CLine>
+        <StartTime>PT1004199059S</StartTime>
+        <Duration>PT1004199059S</Duration>
+        <EndTime>PT1004199059S</EndTime>
+      </Cue>
+    </CueSheet>
+  </CueSheetList>
+  <ResourceList>
+    <SoundRecording LanguageAndScriptCode="Us" IsSupplemental="false">
+      <ResourceReference>AU_D</ResourceReference>
+      <Type Namespace="String" UserDefinedValue="String">AudioStem</Type>
+      <ResourceId IsReplaced="false">
+        <ISRC>String</ISRC>
+        <CatalogNumber Namespace="String">String</CatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ResourceId>
+      <WorkId IsReplaced="false">
+        <ISWC>String</ISWC>
+        <OpusNumber>String</OpusNumber>
+        <ComposerCatalogNumber>String</ComposerCatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </WorkId>
+      <DisplayTitleText LanguageAndScriptCode="anB" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="fJx" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="IYP-742-A4MtIt0L2bp" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <VersionType Namespace="String" UserDefinedValue="String">ACappellaVersion</VersionType>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>PBD-R-_y</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>P__-</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>P--_</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <Character SequenceNumber="0">
+        <CharacterPartyReference>PK--</CharacterPartyReference>
+        <Performer SequenceNumber="0">
+          <ContributorPartyReference>P-Vd_O_hQT_-</ContributorPartyReference>
+          <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+          <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+          <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+          <HasMadeContractedContribution>false</HasMadeContractedContribution>
+          <IsCredited MayBeShared="false">false</IsCredited>
+          <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+            <DisplayCreditText>String</DisplayCreditText>
+            <DisplayCreditParty>Pr</DisplayCreditParty>
+            <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+          </DisplayCredits>
+        </Performer>
+      </Character>
+      <ResourceRightsController SequenceNumber="0">
+        <RightsControllerPartyReference>P-</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <DelegatedUsageRights>
+          <UseType Namespace="String" UserDefinedValue="String">Broadcast</UseType>
+          <PeriodOfRightsDelegation>
+            <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">7941-76</StartDate>
+            <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">4175</EndDate>
+          </PeriodOfRightsDelegation>
+          <TerritoryOfRightsDelegation IdentifierType="DeprecatedISO">AD</TerritoryOfRightsDelegation>
+        </DelegatedUsageRights>
+      </ResourceRightsController>
+      <WorkRightsController>
+        <RightsControllerPartyReference>Pz-</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightsControllerType>OriginalOwner</RightsControllerType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <Territory IdentifierType="DeprecatedISO">AD</Territory>
+        <StartDate>2978</StartDate>
+        <EndDate>3144</EndDate>
+      </WorkRightsController>
+      <PLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <PLineCompany>String</PLineCompany>
+        <PLineText>String</PLineText>
+      </PLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <Duration>PT1004199059S</Duration>
+      <CreationDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="RBH">5048</CreationDate>
+      <MasteredDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="zwZ">1137-28</MasteredDate>
+      <RemasteredDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Di-N0H6e0">6742-67-82</RemasteredDate>
+      <FirstPublicationDate ApplicableTerritoryCode="AD" IsDefault="false">7992-36</FirstPublicationDate>
+      <LocationAndDateOfSession>
+        <SessionType Namespace="String" UserDefinedValue="String">ArtistVocals</SessionType>
+        <Period>
+          <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">5811</StartDate>
+          <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">4466-57-14</EndDate>
+        </Period>
+        <Venue>
+          <VenueName>String</VenueName>
+          <VenueAddress>String</VenueAddress>
+          <TerritoryCode IdentifierType="DeprecatedISO">AD</TerritoryCode>
+          <LocationCode>String</LocationCode>
+          <VenueRoom>String</VenueRoom>
+        </Venue>
+        <Comment LanguageAndScriptCode="Nen" ApplicableTerritoryCode="AD" IsDefault="false" Format="ASCII" Namespace="String" UserDefinedValue="String">String</Comment>
+        <Contributor>
+          <ISNI>String</ISNI>
+          <DPID>PADPIDA90Ef</DPID>
+          <IpiNameNumber>20775167209</IpiNameNumber>
+          <IPN>String</IPN>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+          <PartyName LanguageAndScriptCode="String" IsNickname="false" IsStageName="false" IsLegalName="false" ApplicableTerritoryCode="AD" IsDefault="false">
+            <FullName LanguageAndScriptCode="String">String</FullName>
+            <FullNameAsciiTranscribed>String</FullNameAsciiTranscribed>
+            <FullNameIndexed LanguageAndScriptCode="String">String</FullNameIndexed>
+            <NamesBeforeKeyName LanguageAndScriptCode="String">String</NamesBeforeKeyName>
+            <KeyName LanguageAndScriptCode="String">String</KeyName>
+            <NamesAfterKeyName LanguageAndScriptCode="String">String</NamesAfterKeyName>
+            <AbbreviatedName LanguageAndScriptCode="String">String</AbbreviatedName>
+          </PartyName>
+          <Role Namespace="String" UserDefinedValue="String">Accompanyist</Role>
+        </Contributor>
+      </LocationAndDateOfSession>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="fFG" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="po" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="wZo-535" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="jCU-xVK" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">PsJQ-h</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="dk">4483</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="swC-893">9122-45-33</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>A-</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <CompositeMusicalWorkType>Medley</CompositeMusicalWorkType>
+      <IsCover>false</IsCover>
+      <IsInstrumental>false</IsInstrumental>
+      <ContainsHiddenContent>false</ContainsHiddenContent>
+      <IsRemastered>false</IsRemastered>
+      <IsHiResMusic>false</IsHiResMusic>
+      <DisableCrossfade>false</DisableCrossfade>
+      <DisableSearch>false</DisableSearch>
+      <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+        <DisplayCreditText>String</DisplayCreditText>
+        <DisplayCreditParty>Pxe</DisplayCreditParty>
+        <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+      </DisplayCredits>
+      <LanguageOfPerformance>VGb-H-299-aq2132</LanguageOfPerformance>
+      <AudioChannelConfiguration>BinauralAudio</AudioChannelConfiguration>
+      <TechnicalDetails LanguageAndScriptCode="Xbm" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TechnicalResourceDetailsReference>T_</TechnicalResourceDetailsReference>
+        <EncodingId IsReplaced="false">
+          <ISRC>String</ISRC>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </EncodingId>
+        <AudioCodecType Version="String" Namespace="String" UserDefinedValue="String">AAC</AudioCodecType>
+        <BitRate UnitOfMeasure="bps">0.0</BitRate>
+        <OriginalBitRate UnitOfMeasure="bps">0.0</OriginalBitRate>
+        <NumberOfChannels>0</NumberOfChannels>
+        <SamplingRate UnitOfMeasure="GHz">0.0</SamplingRate>
+        <OriginalSamplingRate UnitOfMeasure="GHz">0.0</OriginalSamplingRate>
+        <BitsPerSample>0</BitsPerSample>
+        <Duration>PT1004199059S</Duration>
+        <BitDepth>0</BitDepth>
+        <IsPreview>false</IsPreview>
+        <PreviewDetails>
+          <StartPoint>0.0</StartPoint>
+          <EndPoint>0.0</EndPoint>
+          <Duration>PT1004199059S</Duration>
+          <TopLeftCorner>46,0</TopLeftCorner>
+          <BottomRightCorner>5893,4</BottomRightCorner>
+          <ExpressionType>Informative</ExpressionType>
+        </PreviewDetails>
+        <File>
+          <URI>String</URI>
+          <HashSum>
+            <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+            <Version>String</Version>
+            <Parameter>String</Parameter>
+            <DataType>Binary64</DataType>
+            <HashSumValue>String</HashSumValue>
+          </HashSum>
+          <FileSize>0.0</FileSize>
+        </File>
+        <IsProvidedInDelivery>false</IsProvidedInDelivery>
+        <Fingerprint>
+          <Algorithm Namespace="String" UserDefinedValue="String">UserDefined</Algorithm>
+          <Version>String</Version>
+          <Parameter>String</Parameter>
+          <File>
+            <URI>String</URI>
+            <HashSum>
+              <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+              <Version>String</Version>
+              <Parameter>String</Parameter>
+              <DataType>Binary64</DataType>
+              <HashSumValue>String</HashSumValue>
+            </HashSum>
+            <FileSize>0.0</FileSize>
+          </File>
+        </Fingerprint>
+        <EncodingDescription>String</EncodingDescription>
+      </TechnicalDetails>
+      <Raga ApplicableTerritoryCode="AD" IsDefault="false">String</Raga>
+      <Tala ApplicableTerritoryCode="AD" IsDefault="false">String</Tala>
+      <Deity ApplicableTerritoryCode="AD" IsDefault="false">String</Deity>
+      <AudioChapterReference>X_--fj-_gSB</AudioChapterReference>
+    </SoundRecording>
+    <Video LanguageAndScriptCode="gA" IsSupplemental="false">
+      <ResourceReference>A-</ResourceReference>
+      <Type Namespace="String" UserDefinedValue="String">AdvertisementVideo</Type>
+      <ResourceId IsReplaced="false">
+        <ISRC>String</ISRC>
+        <ISAN>String</ISAN>
+        <VISAN>String</VISAN>
+        <CatalogNumber Namespace="String">String</CatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+        <EIDR>String</EIDR>
+      </ResourceId>
+      <WorkId IsReplaced="false">
+        <ISWC>String</ISWC>
+        <OpusNumber>String</OpusNumber>
+        <ComposerCatalogNumber>String</ComposerCatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </WorkId>
+      <DisplayTitleText LanguageAndScriptCode="QE-919-k0WVXsa" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="MJR" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="ZB" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <VersionType Namespace="String" UserDefinedValue="String">ACappellaVersion</VersionType>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>P___</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>PMA_u</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>PXg_X-</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <Character SequenceNumber="0">
+        <CharacterPartyReference>PA-__x_dH_hK-ZT_-A_zd_h__</CharacterPartyReference>
+        <Performer SequenceNumber="0">
+          <ContributorPartyReference>Pn-A_-_-_Ec_NX--__F</ContributorPartyReference>
+          <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+          <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+          <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+          <HasMadeContractedContribution>false</HasMadeContractedContribution>
+          <IsCredited MayBeShared="false">false</IsCredited>
+          <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+            <DisplayCreditText>String</DisplayCreditText>
+            <DisplayCreditParty>PSY</DisplayCreditParty>
+            <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+          </DisplayCredits>
+        </Performer>
+      </Character>
+      <ResourceRightsController SequenceNumber="0">
+        <RightsControllerPartyReference>P_r-b</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <DelegatedUsageRights>
+          <UseType Namespace="String" UserDefinedValue="String">Broadcast</UseType>
+          <PeriodOfRightsDelegation>
+            <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">4719-78-77</StartDate>
+            <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">0408</EndDate>
+          </PeriodOfRightsDelegation>
+          <TerritoryOfRightsDelegation IdentifierType="DeprecatedISO">AD</TerritoryOfRightsDelegation>
+        </DelegatedUsageRights>
+      </ResourceRightsController>
+      <WorkRightsController>
+        <RightsControllerPartyReference>P_QL-d-_zz</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightsControllerType>OriginalOwner</RightsControllerType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <Territory IdentifierType="DeprecatedISO">AD</Territory>
+        <StartDate>1593-18-92</StartDate>
+        <EndDate>6244-66-90</EndDate>
+      </WorkRightsController>
+      <PLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <PLineCompany>String</PLineCompany>
+        <PLineText>String</PLineText>
+      </PLine>
+      <CLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <CLineCompany>String</CLineCompany>
+        <CLineText>String</CLineText>
+      </CLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <Duration>PT1004199059S</Duration>
+      <CreationDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Zg">8620-41</CreationDate>
+      <MasteredDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="ZD-x50C1">4100</MasteredDate>
+      <RemasteredDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="pm">6443</RemasteredDate>
+      <FirstPublicationDate ApplicableTerritoryCode="AD" IsDefault="false">
+        <FulfillmentDate>2512</FulfillmentDate>
+        <ResourceReleaseReference>R--OorOJ</ResourceReleaseReference>
+      </FirstPublicationDate>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <AvRating ApplicableTerritoryCode="AD" IsDefault="false">
+        <Rating>String</Rating>
+        <Agency Namespace="String" UserDefinedValue="String">ACMA</Agency>
+        <Reason Namespace="String" UserDefinedValue="String">Behaviour</Reason>
+      </AvRating>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="rzT-h90H7" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="BN" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="Okb-z-dobk426Y35xQtGD" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="HYB" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">PC_-_i_i-Z</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="foy-ko">7923</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="HRq-F71sI">2587</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>A_-W</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <CompositeMusicalWorkType>Medley</CompositeMusicalWorkType>
+      <VideoCueSheetReference>Q--__b</VideoCueSheetReference>
+      <IsCover>false</IsCover>
+      <IsInstrumental>false</IsInstrumental>
+      <ContainsHiddenContent>false</ContainsHiddenContent>
+      <IsRemastered>false</IsRemastered>
+      <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+        <DisplayCreditText>String</DisplayCreditText>
+        <DisplayCreditParty>P_y</DisplayCreditParty>
+        <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+      </DisplayCredits>
+      <LanguageOfPerformance>RX-l3Pv8Cht6hTq6WHYB</LanguageOfPerformance>
+      <LanguageOfDubbing>Qu</LanguageOfDubbing>
+      <SubTitleLanguage>FZ-383-a4SN05W92k0iL4</SubTitleLanguage>
+      <ResourceContainedResourceReferenceList>
+        <ResourceContainedResourceReference>
+          <ResourceContainedResourceReference>A_-Hja-_lp</ResourceContainedResourceReference>
+          <DurationUsed>PT1004199059S</DurationUsed>
+          <StartPoint>0.0</StartPoint>
+          <Purpose Namespace="String" UserDefinedValue="String">BackgroundMusic</Purpose>
+        </ResourceContainedResourceReference>
+      </ResourceContainedResourceReferenceList>
+      <TechnicalDetails LanguageAndScriptCode="an" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TechnicalResourceDetailsReference>T-fC</TechnicalResourceDetailsReference>
+        <EncodingId IsReplaced="false">
+          <ISRC>String</ISRC>
+          <ISAN>String</ISAN>
+          <VISAN>String</VISAN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+          <EIDR>String</EIDR>
+        </EncodingId>
+        <OverallBitRate UnitOfMeasure="bps">0.0</OverallBitRate>
+        <ContainerFormat Namespace="String" UserDefinedValue="String">AIFF</ContainerFormat>
+        <VideoCodecType Version="String" Namespace="String" UserDefinedValue="String">AVC</VideoCodecType>
+        <VideoBitRate UnitOfMeasure="bps">0.0</VideoBitRate>
+        <FrameRate UnitOfMeasure="Hz(interlaced)">0.0</FrameRate>
+        <ImageHeight UnitOfMeasure="cm">0.0</ImageHeight>
+        <ImageWidth UnitOfMeasure="cm">0.0</ImageWidth>
+        <AspectRatio AspectRatioType="PAR">0.0</AspectRatio>
+        <CoreArea>
+          <TopLeftCorner>5,74</TopLeftCorner>
+          <BottomRightCorner>5,8</BottomRightCorner>
+        </CoreArea>
+        <ColorDepth>0</ColorDepth>
+        <VideoDefinitionType Namespace="String" UserDefinedValue="String">HighDefinition</VideoDefinitionType>
+        <AudioCodecType Version="String" Namespace="String" UserDefinedValue="String">AAC</AudioCodecType>
+        <AudioBitRate UnitOfMeasure="bps">0.0</AudioBitRate>
+        <NumberOfAudioChannels>0</NumberOfAudioChannels>
+        <AudioSamplingRate UnitOfMeasure="GHz">0.0</AudioSamplingRate>
+        <AudioBitsPerSample>0</AudioBitsPerSample>
+        <Duration>PT1004199059S</Duration>
+        <BitDepth>0</BitDepth>
+        <IsPreview>false</IsPreview>
+        <PreviewDetails>
+          <StartPoint>0.0</StartPoint>
+          <EndPoint>0.0</EndPoint>
+          <Duration>PT1004199059S</Duration>
+          <TopLeftCorner>74,861</TopLeftCorner>
+          <BottomRightCorner>4,0</BottomRightCorner>
+          <ExpressionType>Informative</ExpressionType>
+        </PreviewDetails>
+        <File>
+          <URI>String</URI>
+          <HashSum>
+            <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+            <Version>String</Version>
+            <Parameter>String</Parameter>
+            <DataType>Binary64</DataType>
+            <HashSumValue>String</HashSumValue>
+          </HashSum>
+          <FileSize>0.0</FileSize>
+        </File>
+        <IsProvidedInDelivery>false</IsProvidedInDelivery>
+        <Fingerprint>
+          <Algorithm Namespace="String" UserDefinedValue="String">UserDefined</Algorithm>
+          <Version>String</Version>
+          <Parameter>String</Parameter>
+          <File>
+            <URI>String</URI>
+            <HashSum>
+              <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+              <Version>String</Version>
+              <Parameter>String</Parameter>
+              <DataType>Binary64</DataType>
+              <HashSumValue>String</HashSumValue>
+            </HashSum>
+            <FileSize>0.0</FileSize>
+          </File>
+        </Fingerprint>
+        <EncodingDescription>String</EncodingDescription>
+      </TechnicalDetails>
+      <Raga>String</Raga>
+      <Tala>String</Tala>
+      <Deity>String</Deity>
+      <VideoChapterReference>X_-</VideoChapterReference>
+    </Video>
+    <Image LanguageAndScriptCode="HNz" IsSupplemental="false">
+      <ResourceReference>A__v</ResourceReference>
+      <Type Namespace="String" UserDefinedValue="String">BackCoverImage</Type>
+      <ResourceId IsReplaced="false">
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ResourceId>
+      <DisplayTitleText LanguageAndScriptCode="Lv-GSY6de" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="aY-PEYX1w5T" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="QcA-942" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <VersionType Namespace="String" UserDefinedValue="String">ACappellaVersion</VersionType>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>PfNwV_-H</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>Ps-Mq__ST-C_-Z_I_syS</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>P--</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <ResourceRightsController SequenceNumber="0">
+        <RightsControllerPartyReference>P-g</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <DelegatedUsageRights>
+          <UseType Namespace="String" UserDefinedValue="String">Broadcast</UseType>
+          <PeriodOfRightsDelegation>
+            <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">8235-58</StartDate>
+            <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">4834</EndDate>
+          </PeriodOfRightsDelegation>
+          <TerritoryOfRightsDelegation IdentifierType="DeprecatedISO">AD</TerritoryOfRightsDelegation>
+        </DelegatedUsageRights>
+      </ResourceRightsController>
+      <WorkRightsController>
+        <RightsControllerPartyReference>P_-pn-iUh-O_</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightsControllerType>OriginalOwner</RightsControllerType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <Territory IdentifierType="DeprecatedISO">AD</Territory>
+        <StartDate>0693</StartDate>
+        <EndDate>8622-71-32</EndDate>
+      </WorkRightsController>
+      <CLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <CLineCompany>String</CLineCompany>
+        <CLineText>String</CLineText>
+      </CLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <CreationDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Fvs-467">0013-34-22</CreationDate>
+      <FirstPublicationDate ApplicableTerritoryCode="AD" IsDefault="false">
+        <FulfillmentDate>4754</FulfillmentDate>
+        <ResourceReleaseReference>RK</ResourceReleaseReference>
+      </FirstPublicationDate>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="CIn-B" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="GL" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="Ruw-ho-K5700" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="abS-R3Mftiz" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">PLY_-B_qd-fw</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="HM">6536</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="XBc-500-avClia3ZBv">3516</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>A_</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <ContainsHiddenContent>false</ContainsHiddenContent>
+      <Description LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</Description>
+      <TechnicalDetails LanguageAndScriptCode="su-sl871wA74OZVNFi" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TechnicalResourceDetailsReference>T-G</TechnicalResourceDetailsReference>
+        <ImageCodecType Version="String" Namespace="String" UserDefinedValue="String">GIF</ImageCodecType>
+        <ImageHeight UnitOfMeasure="cm">0.0</ImageHeight>
+        <ImageWidth UnitOfMeasure="cm">0.0</ImageWidth>
+        <AspectRatio AspectRatioType="PAR">0.0</AspectRatio>
+        <ColorDepth>0</ColorDepth>
+        <ImageResolution>0</ImageResolution>
+        <BitDepth>0</BitDepth>
+        <IsPreview>false</IsPreview>
+        <PreviewDetails>
+          <TopLeftCorner>70,729</TopLeftCorner>
+          <BottomRightCorner>8,2</BottomRightCorner>
+          <ExpressionType>Informative</ExpressionType>
+        </PreviewDetails>
+        <File>
+          <URI>String</URI>
+          <HashSum>
+            <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+            <Version>String</Version>
+            <Parameter>String</Parameter>
+            <DataType>Binary64</DataType>
+            <HashSumValue>String</HashSumValue>
+          </HashSum>
+          <FileSize>0.0</FileSize>
+        </File>
+        <IsProvidedInDelivery>false</IsProvidedInDelivery>
+        <Fingerprint>
+          <Algorithm Namespace="String" UserDefinedValue="String">UserDefined</Algorithm>
+          <Version>String</Version>
+          <Parameter>String</Parameter>
+          <File>
+            <URI>String</URI>
+            <HashSum>
+              <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+              <Version>String</Version>
+              <Parameter>String</Parameter>
+              <DataType>Binary64</DataType>
+              <HashSumValue>String</HashSumValue>
+            </HashSum>
+            <FileSize>0.0</FileSize>
+          </File>
+        </Fingerprint>
+      </TechnicalDetails>
+    </Image>
+    <Text LanguageAndScriptCode="OIC" IsSupplemental="false">
+      <ResourceReference>AtG-_M-_z__l_-C_</ResourceReference>
+      <Type Namespace="String" UserDefinedValue="String">Caption</Type>
+      <ResourceId IsReplaced="false">
+        <ISBN>String</ISBN>
+        <ISSN>String</ISSN>
+        <SICI>String</SICI>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ResourceId>
+      <WorkId IsReplaced="false">
+        <ISWC>String</ISWC>
+        <OpusNumber>String</OpusNumber>
+        <ComposerCatalogNumber>String</ComposerCatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </WorkId>
+      <DisplayTitleText LanguageAndScriptCode="ME" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="KM-op" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="GUx" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <VersionType Namespace="String" UserDefinedValue="String">ACappellaVersion</VersionType>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>Po_f__v-_d--</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>P----Q</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>P_aUg____-dq--Ra--x_N_</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <ResourceRightsController SequenceNumber="0">
+        <RightsControllerPartyReference>P_---_</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <DelegatedUsageRights>
+          <UseType Namespace="String" UserDefinedValue="String">Broadcast</UseType>
+          <PeriodOfRightsDelegation>
+            <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">9508</StartDate>
+            <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">2144</EndDate>
+          </PeriodOfRightsDelegation>
+          <TerritoryOfRightsDelegation IdentifierType="DeprecatedISO">AD</TerritoryOfRightsDelegation>
+        </DelegatedUsageRights>
+      </ResourceRightsController>
+      <WorkRightsController>
+        <RightsControllerPartyReference>Pb-</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightsControllerType>OriginalOwner</RightsControllerType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <Territory IdentifierType="DeprecatedISO">AD</Territory>
+        <StartDate>4443-55</StartDate>
+        <EndDate>0035-85-84</EndDate>
+      </WorkRightsController>
+      <CLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <CLineCompany>String</CLineCompany>
+        <CLineText>String</CLineText>
+      </CLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <CreationDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="kW-Z6W02f9">4878</CreationDate>
+      <FirstPublicationDate ApplicableTerritoryCode="AD" IsDefault="false">
+        <FulfillmentDate>6747</FulfillmentDate>
+        <ResourceReleaseReference>R_-K--K-X</ResourceReleaseReference>
+      </FirstPublicationDate>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="vN" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="FV-243-qItH2m" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="HMB-p-201-fPyL3z4" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="ZsD-kIW-opC0K" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">Py_</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Cew">6979-67-67</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="IA">4932</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>AQ-</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <ContainsHiddenContent>false</ContainsHiddenContent>
+      <ResourceContainedResourceReferenceList>
+        <ResourceContainedResourceReference>
+          <ResourceContainedResourceReference>A__--_a--q_e-k_v</ResourceContainedResourceReference>
+          <DurationUsed>PT1004199059S</DurationUsed>
+          <StartPoint>0.0</StartPoint>
+          <Purpose Namespace="String" UserDefinedValue="String">BackgroundMusic</Purpose>
+        </ResourceContainedResourceReference>
+      </ResourceContainedResourceReferenceList>
+      <TechnicalDetails LanguageAndScriptCode="tK-E" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TechnicalResourceDetailsReference>TN_-</TechnicalResourceDetailsReference>
+        <TextCodecType Version="String" Namespace="String" UserDefinedValue="String">ASCII</TextCodecType>
+        <BitDepth>0</BitDepth>
+        <IsPreview>false</IsPreview>
+        <PreviewDetails>
+          <TopLeftCorner>655,946</TopLeftCorner>
+          <BottomRightCorner>369,7</BottomRightCorner>
+          <ExpressionType>Informative</ExpressionType>
+        </PreviewDetails>
+        <File>
+          <URI>String</URI>
+          <HashSum>
+            <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+            <Version>String</Version>
+            <Parameter>String</Parameter>
+            <DataType>Binary64</DataType>
+            <HashSumValue>String</HashSumValue>
+          </HashSum>
+          <FileSize>0.0</FileSize>
+        </File>
+        <IsProvidedInDelivery>false</IsProvidedInDelivery>
+        <Fingerprint>
+          <Algorithm Namespace="String" UserDefinedValue="String">UserDefined</Algorithm>
+          <Version>String</Version>
+          <Parameter>String</Parameter>
+          <File>
+            <URI>String</URI>
+            <HashSum>
+              <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+              <Version>String</Version>
+              <Parameter>String</Parameter>
+              <DataType>Binary64</DataType>
+              <HashSumValue>String</HashSumValue>
+            </HashSum>
+            <FileSize>0.0</FileSize>
+          </File>
+        </Fingerprint>
+      </TechnicalDetails>
+    </Text>
+    <SheetMusic LanguageAndScriptCode="qd" IsSupplemental="false">
+      <ResourceReference>Alj-oL_</ResourceReference>
+      <Type Namespace="String" UserDefinedValue="String">UserDefined</Type>
+      <ResourceId IsReplaced="false">
+        <ISMN>String</ISMN>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ResourceId>
+      <WorkId IsReplaced="false">
+        <ISWC>String</ISWC>
+        <OpusNumber>String</OpusNumber>
+        <ComposerCatalogNumber>String</ComposerCatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </WorkId>
+      <DisplayTitleText LanguageAndScriptCode="Rw" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="vhR-cofm4AgMC" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="GKD-x0Ptw" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <VersionType Namespace="String" UserDefinedValue="String">ACappellaVersion</VersionType>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>P_</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>P_</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>PD-vx</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <ResourceRightsController SequenceNumber="0">
+        <RightsControllerPartyReference>P---Q_</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <DelegatedUsageRights>
+          <UseType Namespace="String" UserDefinedValue="String">Broadcast</UseType>
+          <PeriodOfRightsDelegation>
+            <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">3420-90-21</StartDate>
+            <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">4347-92</EndDate>
+          </PeriodOfRightsDelegation>
+          <TerritoryOfRightsDelegation IdentifierType="DeprecatedISO">AD</TerritoryOfRightsDelegation>
+        </DelegatedUsageRights>
+      </ResourceRightsController>
+      <WorkRightsController>
+        <RightsControllerPartyReference>P_FIA_</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightsControllerType>OriginalOwner</RightsControllerType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <Territory IdentifierType="DeprecatedISO">AD</Territory>
+        <StartDate>2798-95</StartDate>
+        <EndDate>7082-14</EndDate>
+      </WorkRightsController>
+      <CLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <CLineCompany>String</CLineCompany>
+        <CLineText>String</CLineText>
+      </CLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <CreationDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Oqs-q">5000</CreationDate>
+      <FirstPublicationDate ApplicableTerritoryCode="AD" IsDefault="false">
+        <FulfillmentDate>9760-26-59</FulfillmentDate>
+        <ResourceReleaseReference>R-</ResourceReleaseReference>
+      </FirstPublicationDate>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="nx" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="zb-397-o7P7Fz4qIG7" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="VY" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="sPs-J2hceN" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">PV-r</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="sq-H">8022</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="MQ-715">6822</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>AV</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <ContainsHiddenContent>false</ContainsHiddenContent>
+      <LanguageOfLyrics>BeY-W</LanguageOfLyrics>
+      <ResourceContainedResourceReferenceList>
+        <ResourceContainedResourceReference>
+          <ResourceContainedResourceReference>A_Rw_-_SR_</ResourceContainedResourceReference>
+          <DurationUsed>PT1004199059S</DurationUsed>
+          <StartPoint>0.0</StartPoint>
+          <Purpose Namespace="String" UserDefinedValue="String">BackgroundMusic</Purpose>
+        </ResourceContainedResourceReference>
+      </ResourceContainedResourceReferenceList>
+      <TechnicalDetails LanguageAndScriptCode="XN" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TechnicalResourceDetailsReference>TV_fu</TechnicalResourceDetailsReference>
+        <SheetMusicCodecType Version="String" Namespace="String" UserDefinedValue="String">UserDefined</SheetMusicCodecType>
+        <BitDepth>0</BitDepth>
+        <IsPreview>false</IsPreview>
+        <PreviewDetails>
+          <TopLeftCorner>12,59</TopLeftCorner>
+          <BottomRightCorner>7,5</BottomRightCorner>
+          <ExpressionType>Informative</ExpressionType>
+        </PreviewDetails>
+        <File>
+          <URI>String</URI>
+          <HashSum>
+            <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+            <Version>String</Version>
+            <Parameter>String</Parameter>
+            <DataType>Binary64</DataType>
+            <HashSumValue>String</HashSumValue>
+          </HashSum>
+          <FileSize>0.0</FileSize>
+        </File>
+        <IsProvidedInDelivery>false</IsProvidedInDelivery>
+        <Fingerprint>
+          <Algorithm Namespace="String" UserDefinedValue="String">UserDefined</Algorithm>
+          <Version>String</Version>
+          <Parameter>String</Parameter>
+          <File>
+            <URI>String</URI>
+            <HashSum>
+              <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+              <Version>String</Version>
+              <Parameter>String</Parameter>
+              <DataType>Binary64</DataType>
+              <HashSumValue>String</HashSumValue>
+            </HashSum>
+            <FileSize>0.0</FileSize>
+          </File>
+        </Fingerprint>
+      </TechnicalDetails>
+    </SheetMusic>
+    <Software LanguageAndScriptCode="SzC-a-f3fQ4" IsSupplemental="false">
+      <ResourceReference>A__--</ResourceReference>
+      <Type Namespace="String" UserDefinedValue="String">InteractiveBooklet</Type>
+      <ResourceId IsReplaced="false">
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ResourceId>
+      <WorkId IsReplaced="false">
+        <ISWC>String</ISWC>
+        <OpusNumber>String</OpusNumber>
+        <ComposerCatalogNumber>String</ComposerCatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </WorkId>
+      <DisplayTitleText LanguageAndScriptCode="YP-033" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="Ib-H-wB-OE5gW" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="sF-e" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <VersionType Namespace="String" UserDefinedValue="String">ACappellaVersion</VersionType>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>Pk_g</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>POm</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>P-bSad___C-f</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <ResourceRightsController SequenceNumber="0">
+        <RightsControllerPartyReference>P-g</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <DelegatedUsageRights>
+          <UseType Namespace="String" UserDefinedValue="String">Broadcast</UseType>
+          <PeriodOfRightsDelegation>
+            <StartDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">3004</StartDate>
+            <EndDate IsApproximate="false" IsBefore="false" IsAfter="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="String">9067</EndDate>
+          </PeriodOfRightsDelegation>
+          <TerritoryOfRightsDelegation IdentifierType="DeprecatedISO">AD</TerritoryOfRightsDelegation>
+        </DelegatedUsageRights>
+      </ResourceRightsController>
+      <WorkRightsController>
+        <RightsControllerPartyReference>PW___e_N</RightsControllerPartyReference>
+        <RightsControlType>AdministratingRecordCompany</RightsControlType>
+        <RightsControllerType>OriginalOwner</RightsControllerType>
+        <RightShareUnknown>false</RightShareUnknown>
+        <Territory IdentifierType="DeprecatedISO">AD</Territory>
+        <StartDate>4501-29</StartDate>
+        <EndDate>8242-81-84</EndDate>
+      </WorkRightsController>
+      <PLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <PLineCompany>String</PLineCompany>
+        <PLineText>String</PLineText>
+      </PLine>
+      <CLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <CLineCompany>String</CLineCompany>
+        <CLineText>String</CLineText>
+      </CLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <CreationDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="BT-nI">2793-42-86</CreationDate>
+      <FirstPublicationDate ApplicableTerritoryCode="AD" IsDefault="false">
+        <FulfillmentDate>2494-00-27</FulfillmentDate>
+        <ResourceReleaseReference>R_-</ResourceReleaseReference>
+      </FirstPublicationDate>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="DZ-966-AQ32SOu" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="bK-utL-469-Ntyp3Sr371" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="Dh" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="zRO" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">Pezn_S_Uy-RGth_</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="xu-i">8240</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="bK">2597-63-43</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>A_Pc_Kn</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <ContainsHiddenContent>false</ContainsHiddenContent>
+      <ResourceContainedResourceReferenceList>
+        <ResourceContainedResourceReference>
+          <ResourceContainedResourceReference>A-_-</ResourceContainedResourceReference>
+          <DurationUsed>PT1004199059S</DurationUsed>
+          <StartPoint>0.0</StartPoint>
+          <Purpose Namespace="String" UserDefinedValue="String">BackgroundMusic</Purpose>
+        </ResourceContainedResourceReference>
+      </ResourceContainedResourceReferenceList>
+      <TechnicalDetails LanguageAndScriptCode="go" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TechnicalResourceDetailsReference>T_P</TechnicalResourceDetailsReference>
+        <OperatingSystemType Version="String" Namespace="String" UserDefinedValue="String">MacOS</OperatingSystemType>
+        <BitDepth>0</BitDepth>
+        <IsPreview>false</IsPreview>
+        <PreviewDetails>
+          <TopLeftCorner>4,30</TopLeftCorner>
+          <BottomRightCorner>5,0</BottomRightCorner>
+          <ExpressionType>Informative</ExpressionType>
+        </PreviewDetails>
+        <File>
+          <URI>String</URI>
+          <HashSum>
+            <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+            <Version>String</Version>
+            <Parameter>String</Parameter>
+            <DataType>Binary64</DataType>
+            <HashSumValue>String</HashSumValue>
+          </HashSum>
+          <FileSize>0.0</FileSize>
+        </File>
+        <IsProvidedInDelivery>false</IsProvidedInDelivery>
+        <Fingerprint>
+          <Algorithm Namespace="String" UserDefinedValue="String">UserDefined</Algorithm>
+          <Version>String</Version>
+          <Parameter>String</Parameter>
+          <File>
+            <URI>String</URI>
+            <HashSum>
+              <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+              <Version>String</Version>
+              <Parameter>String</Parameter>
+              <DataType>Binary64</DataType>
+              <HashSumValue>String</HashSumValue>
+            </HashSum>
+            <FileSize>0.0</FileSize>
+          </File>
+        </Fingerprint>
+      </TechnicalDetails>
+    </Software>
+  </ResourceList>
+  <ChapterList LanguageAndScriptCode="mwT-603-wco0dv0sh">
+    <Chapter LanguageAndScriptCode="Nxm">
+      <ChapterReference>XsfEl_b_e__</ChapterReference>
+      <ChapterId Namespace="String">String</ChapterId>
+      <DisplayTitleText LanguageAndScriptCode="Qv" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="Qo" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="bQU-x1E9C4KI" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <SequenceNumber>0</SequenceNumber>
+      <Contributor SequenceNumber="0">
+        <ContributorPartyReference>P_</ContributorPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+        <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+        <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+        <HasMadeContractedContribution>false</HasMadeContractedContribution>
+        <IsCredited MayBeShared="false">false</IsCredited>
+        <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+          <DisplayCreditText>String</DisplayCreditText>
+          <DisplayCreditParty>Po</DisplayCreditParty>
+          <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+        </DisplayCredits>
+      </Contributor>
+      <Character SequenceNumber="0">
+        <CharacterPartyReference>P-</CharacterPartyReference>
+        <Performer SequenceNumber="0">
+          <ContributorPartyReference>Pa</ContributorPartyReference>
+          <Role Namespace="String" UserDefinedValue="String">Adapter</Role>
+          <InstrumentType Namespace="String" UserDefinedValue="String">Accordion</InstrumentType>
+          <HasMadeFeaturedContribution>false</HasMadeFeaturedContribution>
+          <HasMadeContractedContribution>false</HasMadeContractedContribution>
+          <IsCredited MayBeShared="false">false</IsCredited>
+          <DisplayCredits LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+            <DisplayCreditText>String</DisplayCreditText>
+            <DisplayCreditParty>Pg-O-dwN</DisplayCreditParty>
+            <NameUsedInDisplayCredit>String</NameUsedInDisplayCredit>
+          </DisplayCredits>
+        </Performer>
+      </Character>
+      <RepresentativeImageReference>A_IW</RepresentativeImageReference>
+      <StartTime>PT1004199059S</StartTime>
+      <Duration>PT1004199059S</Duration>
+      <EndTime>PT1004199059S</EndTime>
+    </Chapter>
+  </ChapterList>
+  <ReleaseList>
+    <Release LanguageAndScriptCode="hCE-105-ug0C8VbjK">
+      <ReleaseReference>R_h__</ReleaseReference>
+      <ReleaseType Namespace="String" UserDefinedValue="String">Album</ReleaseType>
+      <ReleaseId>
+        <GRid>String</GRid>
+        <ICPN>String</ICPN>
+        <CatalogNumber Namespace="String">String</CatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ReleaseId>
+      <DisplayTitleText LanguageAndScriptCode="qQn" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="Cq" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="Fd-VRP" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+      <DisplayArtist SequenceNumber="0">
+        <ArtistPartyReference>PWe</ArtistPartyReference>
+        <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+        <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+        <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+          <IsDisplayedInTitle>false</IsDisplayedInTitle>
+          <Prefix LanguageAndScriptCode="String">String</Prefix>
+        </TitleDisplayInformation>
+      </DisplayArtist>
+      <ReleaseLabelReference LanguageAndScriptCode="mGJ" IsDefault="false" LabelType="DisplayLabel" AccessControlParty="String" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">P_-</ReleaseLabelReference>
+      <AdministratingRecordCompany>
+        <RecordCompanyPartyReference>Pn</RecordCompanyPartyReference>
+        <Role Namespace="String" UserDefinedValue="String">DesignatedDsrMessageRecipient</Role>
+      </AdministratingRecordCompany>
+      <PLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <PLineCompany>String</PLineCompany>
+        <PLineText>String</PLineText>
+      </PLine>
+      <CLine ApplicableTerritoryCode="AD" IsDefault="false" LanguageAndScriptCode="String">
+        <Year>2001</Year>
+        <CLineCompany>String</CLineCompany>
+        <CLineText>String</CLineText>
+      </CLine>
+      <CourtesyLine LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</CourtesyLine>
+      <Duration>PT1004199059S</Duration>
+      <Genre LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+        <GenreText>String</GenreText>
+        <SubGenre>String</SubGenre>
+        <GenreCategory ApplicableTerritoryCode="AD">
+          <Value LanguageAndScriptCode="kiM-e" Namespace="String" UserDefinedValue="String">Blues</Value>
+          <Description LanguageAndScriptCode="mY" ApplicableTerritoryCode="AD" IsDefault="false" Format="ASCII" Namespace="String" UserDefinedValue="String">String</Description>
+        </GenreCategory>
+        <SubGenreCategory>
+          <Value Namespace="String" UserDefinedValue="String">AcousticChicagoBlues</Value>
+        </SubGenreCategory>
+      </Genre>
+      <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" IsDefault="false">6008</ReleaseDate>
+      <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" IsDefault="false">0744-36</OriginalReleaseDate>
+      <ReleaseVisibilityReference>VDYN</ReleaseVisibilityReference>
+      <ParentalWarningType Namespace="String" ApplicableTerritoryCode="AD" UserDefinedValue="String" IsDefault="false">Explicit</ParentalWarningType>
+      <AvRating ApplicableTerritoryCode="AD" IsDefault="false">
+        <Rating>String</Rating>
+        <Agency Namespace="String" UserDefinedValue="String">ACMA</Agency>
+        <Reason Namespace="String" UserDefinedValue="String">Behaviour</Reason>
+      </AvRating>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="mz-B-092-S421a" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="WyE" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="EA" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="WUO-j2RqTI45G3" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">PK</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="PcV">9068</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="lQI-i">5253</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>A-</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <IsSingleArtistCompilation>false</IsSingleArtistCompilation>
+      <ResourceGroup>
+        <DisplayTitleText LanguageAndScriptCode="fT-545" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="iH" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="Dc-106-avZr5Hx9" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <SequenceNumber>0</SequenceNumber>
+        <NoDisplaySequence>false</NoDisplaySequence>
+        <DisplayArtist SequenceNumber="0">
+          <ArtistPartyReference>P-EF-A_</ArtistPartyReference>
+          <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+          <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+          <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+            <IsDisplayedInTitle>false</IsDisplayedInTitle>
+            <Prefix LanguageAndScriptCode="String">String</Prefix>
+          </TitleDisplayInformation>
+        </DisplayArtist>
+        <CarrierType Namespace="String" UserDefinedValue="String">12InchDiscoSingleRemix</CarrierType>
+        <Duration>PT1004199059S</Duration>
+        <ResourceGroupReleaseReference>R_ewz</ResourceGroupReleaseReference>
+        <ResourceGroup ResourceGroupType="Component">
+          <DisplayTitleText LanguageAndScriptCode="pya-638" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+          <DisplayTitle LanguageAndScriptCode="mn-qHk2WN" ApplicableTerritoryCode="AD" IsDefault="false">
+            <TitleText>String</TitleText>
+            <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+          </DisplayTitle>
+          <AdditionalTitle LanguageAndScriptCode="eyY-Ea2s9" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+            <TitleText>String</TitleText>
+            <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+          </AdditionalTitle>
+          <SequenceNumber>0</SequenceNumber>
+          <NoDisplaySequence>false</NoDisplaySequence>
+          <DisplayArtist SequenceNumber="0">
+            <ArtistPartyReference>P_BJp--fs-</ArtistPartyReference>
+            <DisplayArtistRole Namespace="String" UserDefinedValue="String">Artist</DisplayArtistRole>
+            <ArtisticRole Namespace="String" UserDefinedValue="String">Adapter</ArtisticRole>
+            <TitleDisplayInformation LanguageAndScriptCode="String" SequenceNumber="0">
+              <IsDisplayedInTitle>false</IsDisplayedInTitle>
+              <Prefix LanguageAndScriptCode="String">String</Prefix>
+            </TitleDisplayInformation>
+          </DisplayArtist>
+          <CarrierType Namespace="String" UserDefinedValue="String">12InchDiscoSingleRemix</CarrierType>
+          <Duration>PT1004199059S</Duration>
+          <ResourceGroupReleaseReference>R_K_</ResourceGroupReleaseReference>
+          <ResourceGroupContentItem>
+            <SequenceNumber>0</SequenceNumber>
+            <NoDisplaySequence>false</NoDisplaySequence>
+            <ReleaseResourceReference>A_-Pvw-</ReleaseResourceReference>
+            <LinkedReleaseResourceReference LinkDescription="CoverArt" LanguageAndScriptCode="cCX" Namespace="String" UserDefinedValue="String">A__tTG</LinkedReleaseResourceReference>
+            <IsBonusResource>false</IsBonusResource>
+            <IsInstantGratificationResource>false</IsInstantGratificationResource>
+            <IsPreOrderIncentiveResource>false</IsPreOrderIncentiveResource>
+          </ResourceGroupContentItem>
+          <LinkedReleaseResourceReference LinkDescription="CoverArt" LanguageAndScriptCode="al" Namespace="String" UserDefinedValue="String">AEBGtK</LinkedReleaseResourceReference>
+        </ResourceGroup>
+        <ResourceGroupContentItem>
+          <SequenceNumber>0</SequenceNumber>
+          <NoDisplaySequence>false</NoDisplaySequence>
+          <ReleaseResourceReference>A-</ReleaseResourceReference>
+          <LinkedReleaseResourceReference LinkDescription="CoverArt" LanguageAndScriptCode="Nu" Namespace="String" UserDefinedValue="String">A-N</LinkedReleaseResourceReference>
+          <IsBonusResource>false</IsBonusResource>
+          <IsInstantGratificationResource>false</IsInstantGratificationResource>
+          <IsPreOrderIncentiveResource>false</IsPreOrderIncentiveResource>
+        </ResourceGroupContentItem>
+        <LinkedReleaseResourceReference LinkDescription="CoverArt" LanguageAndScriptCode="jmL" Namespace="String" UserDefinedValue="String">AS</LinkedReleaseResourceReference>
+      </ResourceGroup>
+      <ExternalResourceLink>
+        <URL>String</URL>
+        <ValidityPeriod>
+          <StartDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Ee-GEb">9900</StartDate>
+          <EndDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="aIb-729">9611</EndDate>
+        </ValidityPeriod>
+        <ExternalLink>String</ExternalLink>
+        <ExternallyLinkedResourceType Namespace="String" UserDefinedValue="String">AdditionalMetadata</ExternallyLinkedResourceType>
+        <FileFormat>String</FileFormat>
+      </ExternalResourceLink>
+      <TargetURL>String</TargetURL>
+      <Keywords LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</Keywords>
+      <Synopsis LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false" IsShortSynopsis="false">String</Synopsis>
+      <Raga ApplicableTerritoryCode="AD" IsDefault="false">String</Raga>
+      <Tala ApplicableTerritoryCode="AD" IsDefault="false">String</Tala>
+      <Deity ApplicableTerritoryCode="AD" IsDefault="false">String</Deity>
+      <HiResMusicDescription>String</HiResMusicDescription>
+      <IsSoundtrack>false</IsSoundtrack>
+      <IsHiResMusic>false</IsHiResMusic>
+      <MarketingComment LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</MarketingComment>
+    </Release>
+    <TrackRelease IsMainRelease="false">
+      <ReleaseReference>R--_-qNx-w_Nf-eHa-pSYD---_bD_Q__O_</ReleaseReference>
+      <ReleaseId>
+        <GRid>String</GRid>
+        <ICPN>String</ICPN>
+        <CatalogNumber Namespace="String">String</CatalogNumber>
+        <ProprietaryId Namespace="String">String</ProprietaryId>
+      </ReleaseId>
+      <DisplayTitleText LanguageAndScriptCode="Xm" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+      <DisplayTitle LanguageAndScriptCode="qIQ" ApplicableTerritoryCode="AD" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </DisplayTitle>
+      <AdditionalTitle LanguageAndScriptCode="Hk-gkIfu-OIy132NU0" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+        <TitleText>String</TitleText>
+        <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+      </AdditionalTitle>
+      <ReleaseResourceReference>AW</ReleaseResourceReference>
+      <LinkedReleaseResourceReference LinkDescription="CoverArt" LanguageAndScriptCode="PZ-110" Namespace="String" UserDefinedValue="String">AxKPH_-rv-_mG-MH_-_--uHPXL-_t-fGsM</LinkedReleaseResourceReference>
+      <ReleaseLabelReference LanguageAndScriptCode="mPn" IsDefault="false" LabelType="DisplayLabel" AccessControlParty="String" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">P--</ReleaseLabelReference>
+      <Genre LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">
+        <GenreText>String</GenreText>
+        <SubGenre>String</SubGenre>
+        <GenreCategory ApplicableTerritoryCode="AD">
+          <Value LanguageAndScriptCode="Zi" Namespace="String" UserDefinedValue="String">Blues</Value>
+          <Description LanguageAndScriptCode="dR" ApplicableTerritoryCode="AD" IsDefault="false" Format="ASCII" Namespace="String" UserDefinedValue="String">String</Description>
+        </GenreCategory>
+        <SubGenreCategory>
+          <Value Namespace="String" UserDefinedValue="String">AcousticChicagoBlues</Value>
+        </SubGenreCategory>
+      </Genre>
+      <ReleaseVisibilityReference>VqkwF</ReleaseVisibilityReference>
+      <RelatedRelease>
+        <ReleaseRelationshipType Namespace="String" UserDefinedValue="String">HasArtistFromEnsemble</ReleaseRelationshipType>
+        <ReleaseId>
+          <GRid>String</GRid>
+          <ICPN>String</ICPN>
+          <CatalogNumber Namespace="String">String</CatalogNumber>
+          <ProprietaryId Namespace="String">String</ProprietaryId>
+        </ReleaseId>
+        <DisplayTitleText LanguageAndScriptCode="ddX-HImH4zqIo" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayTitleText>
+        <DisplayTitle LanguageAndScriptCode="gi" ApplicableTerritoryCode="AD" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </DisplayTitle>
+        <AdditionalTitle LanguageAndScriptCode="Hs-u8ywV" ApplicableTerritoryCode="AD" TitleType="AlternativeTitle" Namespace="String" UserDefinedValue="String" IsDefault="false">
+          <TitleText>String</TitleText>
+          <SubTitle SequenceNumber="0" IsDisplayedInTitle="false" SubTitleType="Location">String</SubTitle>
+        </AdditionalTitle>
+        <DisplayArtistName LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</DisplayArtistName>
+        <ReleaseLabelReference LanguageAndScriptCode="JP" IsDefault="false" LabelType="DisplayLabel" Namespace="String" UserDefinedValue="String" ApplicableTerritoryCode="AD">P_Bl-_--OoQyL-vC</ReleaseLabelReference>
+        <ReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Pb-HrcH9">3626</ReleaseDate>
+        <OriginalReleaseDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="DG-n-Uo">6812-57</OriginalReleaseDate>
+      </RelatedRelease>
+      <RelatedResource>
+        <ResourceRelationshipType>ContainsSamplesFrom</ResourceRelationshipType>
+        <ResourceRelatedResourceReference>A_zN-__--_B</ResourceRelatedResourceReference>
+        <Timing>
+          <StartPoint>PT1004199059S</StartPoint>
+          <DurationUsed>PT1004199059S</DurationUsed>
+        </Timing>
+      </RelatedResource>
+      <TargetURL>String</TargetURL>
+      <Keywords LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</Keywords>
+      <Synopsis LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false" IsShortSynopsis="false">String</Synopsis>
+      <MarketingComment LanguageAndScriptCode="String" ApplicableTerritoryCode="AD" IsDefault="false">String</MarketingComment>
+    </TrackRelease>
+  </ReleaseList>
+  <DealList>
+    <ReleaseDeal>
+      <DealReleaseReference>RR-LHY-T</DealReleaseReference>
+      <Deal>
+        <DealReference>String</DealReference>
+        <IsCommunicatedOutOfBand>false</IsCommunicatedOutOfBand>
+        <DealTerms>
+          <TerritoryCode IdentifierType="ISO">AD</TerritoryCode>
+          <ValidityPeriod>
+            <StartDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="uXT-469">4689</StartDate>
+            <EndDate IsApproximate="false" ApplicableTerritoryCode="AD" LocationDescription="String" LanguageAndScriptCode="Hd">9957</EndDate>
+          </ValidityPeriod>
+          <CommercialModelType Namespace="String" UserDefinedValue="String">AdvertisementSupportedModel</CommercialModelType>
+          <UseType Namespace="String" IsDiscoverable="false" UserDefinedValue="String">Broadcast</UseType>
+          <UserInterfaceType Namespace="String" UserDefinedValue="String">ConnectedDevice</UserInterfaceType>
+          <CarrierType Namespace="String" UserDefinedValue="String">12InchDiscoSingleRemix</CarrierType>
+          <TechnicalInstantiation>
+            <VideoDefinitionType Namespace="String" UserDefinedValue="String">HighDefinition</VideoDefinitionType>
+            <CodingType>Lossless</CodingType>
+            <BitRate UnitOfMeasure="bps">0.0</BitRate>
+          </TechnicalInstantiation>
+          <NumberOfUsages>0</NumberOfUsages>
+          <DistributionChannel>
+            <PartyId>
+              <ISNI>String</ISNI>
+              <DPID>PADPIDAzAh</DPID>
+              <IpiNameNumber>25858636696</IpiNameNumber>
+              <IPN>String</IPN>
+              <CisacSocietyId>String</CisacSocietyId>
+              <ProprietaryId Namespace="String">String</ProprietaryId>
+            </PartyId>
+            <TradingName LanguageAndScriptCode="String">String</TradingName>
+            <URL>String</URL>
+          </DistributionChannel>
+          <RightsClaimPolicy>
+            <Condition>
+              <Value>0.0</Value>
+              <Unit>Millisecond</Unit>
+              <ReferenceCreation>ReferenceResource</ReferenceCreation>
+              <RelationalRelator>EqualTo</RelationalRelator>
+              <MeasurementType>BothAudioAndVideo</MeasurementType>
+            </Condition>
+            <RightsClaimPolicyType>BlockAccess</RightsClaimPolicyType>
+          </RightsClaimPolicy>
+          <PriceInformation PriceType="StandardRetailPrice" Namespace="String" UserDefinedValue="String">
+            <PriceCode Namespace="String">String</PriceCode>
+            <WholesalePricePerUnit CurrencyCode="AED">0.0</WholesalePricePerUnit>
+            <BulkOrderWholesalePricePerUnit CurrencyCode="AED">0.0</BulkOrderWholesalePricePerUnit>
+            <SuggestedRetailPrice CurrencyCode="AED">0.0</SuggestedRetailPrice>
+          </PriceInformation>
+          <IsPromotional>false</IsPromotional>
+          <IsPreOrderDeal>false</IsPreOrderDeal>
+          <InstantGratificationResourceList>
+            <DealResourceReference>A-_H--_c_-</DealResourceReference>
+          </InstantGratificationResourceList>
+          <PhysicalReturns>
+            <PhysicalReturnsAllowed>false</PhysicalReturnsAllowed>
+            <LatestDateForPhysicalReturns>9071</LatestDateForPhysicalReturns>
+          </PhysicalReturns>
+          <NumberOfProductsPerCarton>0</NumberOfProductsPerCarton>
+        </DealTerms>
+        <DealTechnicalResourceDetailsReferenceList>
+          <DealTechnicalResourceDetailsReference>Tws-</DealTechnicalResourceDetailsReference>
+        </DealTechnicalResourceDetailsReferenceList>
+        <DistributionChannelPage>
+          <PartyId>
+            <ISNI>String</ISNI>
+            <DPID>PADPIDAONAz</DPID>
+            <IpiNameNumber>56114051569</IpiNameNumber>
+            <IPN>String</IPN>
+            <CisacSocietyId>String</CisacSocietyId>
+            <ProprietaryId Namespace="String">String</ProprietaryId>
+          </PartyId>
+          <PageName LanguageAndScriptCode="String">String</PageName>
+          <URL>String</URL>
+          <UserName>String</UserName>
+        </DistributionChannelPage>
+      </Deal>
+    </ReleaseDeal>
+    <ReleaseVisibility>
+      <VisibilityReference>V_--a_i</VisibilityReference>
+      <ReleaseDisplayStartDateTime>2001-10-26T21:32:52+02:00</ReleaseDisplayStartDateTime>
+      <CoverArtPreviewStartDateTime>2001-10-26T21:32:52+02:00</CoverArtPreviewStartDateTime>
+      <FullTrackListingPreviewStartDateTime>2001-10-26T21:32:52+02:00</FullTrackListingPreviewStartDateTime>
+    </ReleaseVisibility>
+    <TrackReleaseVisibility>
+      <VisibilityReference>V-tFp</VisibilityReference>
+      <TrackListingPreviewStartDateTime>2001-10-26T21:32:52+02:00</TrackListingPreviewStartDateTime>
+      <ClipPreviewStartDateTime>2001-10-26T21:32:52+02:00</ClipPreviewStartDateTime>
+    </TrackReleaseVisibility>
+  </DealList>
+  <SupplementalDocumentList>
+    <SupplementalDocument>
+      <URI>String</URI>
+      <HashSum>
+        <Algorithm Namespace="String" UserDefinedValue="String">CRC32</Algorithm>
+        <Version>String</Version>
+        <Parameter>String</Parameter>
+        <DataType>Binary64</DataType>
+        <HashSumValue>String</HashSumValue>
+      </HashSum>
+      <FileSize>0.0</FileSize>
+    </SupplementalDocument>
+  </SupplementalDocumentList>
+</n2:NewReleaseMessage>

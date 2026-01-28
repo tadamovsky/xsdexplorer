@@ -1,0 +1,9 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<group  prefer="public"  xml:base="classpath:org/me/myapp/xsd/" >  
+  <uri name="http://www.w3.org/XML/1998/namespace" uri="catalog/xml.xsd"/>
+  <!--uri name="http://www.w3.org/1999/xlink" uri="xlink.xsd" />
+  <uri name="http://www.w3.org/2001/XMLSchema" uri="XMLSchema.xsd" />
+  <uri name="http://purl.org/dc/elements/1.1/" uri="dc.xsd" />
+  <uri name="http://www.loc.gov/mods/v3"  uri="mods-3.3.xsd" /-->
+ </group>
+</catalog>

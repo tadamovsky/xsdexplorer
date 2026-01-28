@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:n1="http://aaa.com/formTest" targetNamespace="http://aaa.com/formTest" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="elQualified.xsd"/>
+	<xs:element name="globalEl">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="aaa"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Element1" type="xs:string"/>
+				<xs:element ref="n1:globalEl"/>
+				<xs:element ref="n1:Root2"/>
+			</xs:sequence>
+			<xs:attribute name="Attribute1" type="xs:string"/>
+			<xs:attribute name="Attribute2" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

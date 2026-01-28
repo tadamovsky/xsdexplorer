@@ -1,0 +1,41 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+  
+    - name: Set up JDK with JavaFX
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        # Specify the distribution that includes JavaFX
+        distribution: 'zulu'
+        # Request the package type that bundles JDK and JavaFX
+        java-package: 'jdk+fx'
+        # Optional: Cache dependencies for faster subsequent runs
+        cache: 'maven' # or 'gradle' if using Gradle
+
+    - name: prepare libraries
+      run: ./createLibs/prepareLibs.bat
+    
+    - name: Build with Maven
+      run: mvn clean package -PbuildPackage # or your specific build command
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Release-Build
+        path: ${{github.workspace}}/target/xsdexplorer-no_jdk.zip
+    
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      if: github.ref_type == 'tag'
+      with:
+        files: ${{github.workspace}}/target/xsdexplorer*.zip

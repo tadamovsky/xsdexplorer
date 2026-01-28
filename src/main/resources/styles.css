@@ -1,0 +1,70 @@
+.root {
+  -fx-background-color: cornsilk;
+}
+
+.shapeWithShadow {
+	-fx-effect: dropshadow(three-pass-box, gray, 0, 0, 3, 3);
+}
+
+.optionalShape {
+	-fx-border-style:  segments(3, 3)
+}
+
+.requiredShape {
+    -fx-border-style: solid
+}
+
+.nodeShape {
+	-fx-background-color: #00ffff;
+}
+
+
+.nodeText {
+	-fx-font-weight: bold;
+}
+
+.nodeLabel:focused > .nodeShape {
+    -fx-background-color: white;
+}
+
+.attrNodeLabel {
+	-fx-font-weight: bold;
+	-fx-padding: 2 6 2 6;
+}
+
+.attrNodeLabel:focused {
+    -fx-background-color: white;
+}
+
+.TypeRectangle {
+    -fx-background-color: lightyellow;
+    -fx-border-style: segments(10, 15, 15, 15);
+}
+
+.TypeRectangle > Text {
+    -fx-font-weight: bold;
+    -fx-fill: gray; 
+}
+
+.annotation {
+    /*-fx-font-weight: lighter;*/
+	-fx-font-size: 0.8em;
+    -fx-fill: gray; 
+}
+
+.successIcon {
+	 -fx-graphic: url("success.png");
+}
+.warningIcon {
+	 -fx-graphic: url("dialog-warning.png");
+}
+.errorIcon {
+	 -fx-graphic: url("dialog-error.png");
+}
+.infoIcon {
+	 -fx-graphic: url("dialog-information.png");
+}
+
+.table-row-cell:selected .hyperlink {
+    -fx-text-fill: white;
+}

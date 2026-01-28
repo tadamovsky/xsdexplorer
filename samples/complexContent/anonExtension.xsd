@@ -1,0 +1,42 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BillingAddress">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="GlobalAddrType">
+								<xs:sequence>
+									<xs:element name="Department" type="xs:string" default="Accounts Payable"/>
+								</xs:sequence>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Root2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BillingAddress">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="GlobalAddrType">
+								<xs:sequence>
+									<xs:element name="Department2" type="xs:string" default="Accounts Payable2"/>
+								</xs:sequence>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="GlobalAddrType">
+		<xs:sequence>
+			<xs:element name="Country" type="xs:string"/>
+			<xs:element name="Street" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

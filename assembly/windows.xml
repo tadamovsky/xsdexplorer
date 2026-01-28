@@ -1,0 +1,28 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0">
+	<id>windows_x64</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<componentDescriptors>
+		<componentDescriptor>assembly/common.xml</componentDescriptor>
+	</componentDescriptors>
+	<fileSets>
+		<!-- Include the custom runtime created by jlink -->
+		<fileSet>
+			<directory>${project.basedir}/java-runtime</directory>
+			<outputDirectory>java-runtime</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>XsdExplorer.exe</include>
+				<include>XsdExplorer.l4j.ini</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+</assembly>

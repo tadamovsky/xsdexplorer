@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" att1="It works 1" xsi:noNamespaceSchemaLocation="recExt.xsd">
+	<e1 att1="It works 3">
+		<e1 att1="It works 5"/>
+	</e1>
+</e1>

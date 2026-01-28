@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="allSimpleTypes.xsd">
+  <myString>String</myString>
+  <myNormalizedString>String</myNormalizedString>
+  <myToken>String</myToken>
+  <myLanguage>r</myLanguage>
+  <myNMTOKEN>c</myNMTOKEN>
+  <myNMTOKENS>cc</myNMTOKENS>
+  <myName>i</myName>
+  <myNCName>i</myNCName>
+  <myID>String</myID>
+  <myIDREF>String</myIDREF>
+  <myIDREFS>String</myIDREFS>
+  <myInteger>0</myInteger>
+  <myNonPositiveInteger>0</myNonPositiveInteger>
+  <myNegativeInteger>-1</myNegativeInteger>
+  <myLong>0</myLong>
+  <myInt>0</myInt>
+  <myShort>0</myShort>
+  <myByte>0</myByte>
+  <myNonNegativeInteger>0</myNonNegativeInteger>
+  <myUnsignedLong>0</myUnsignedLong>
+  <myUnsignedInt>0</myUnsignedInt>
+  <myUnsignedShort>0</myUnsignedShort>
+  <myUnsignedByte>0</myUnsignedByte>
+  <myPositiveInteger>1</myPositiveInteger>
+  <myDecimal>0.0</myDecimal>
+  <myFloat>0.0</myFloat>
+  <myDouble>0.0</myDouble>
+  <myDuration>PT1004199059S</myDuration>
+  <myDateTime>2001-10-26T21:32:52+02:00</myDateTime>
+  <myTime>21:32:52</myTime>
+  <myDate>2001-10-26</myDate>
+  <myGYearMonth>2001-10</myGYearMonth>
+  <myGYear>2001</myGYear>
+  <myGMonthDay>--05-01</myGMonthDay>
+  <myGDay>---17</myGDay>
+  <myGMonth>--05</myGMonth>
+  <myBoolean>false</myBoolean>
+  <myBase64Binary>++++</myBase64Binary>
+  <myHexBinary>3f3c</myHexBinary>
+  <myAnyURI>String</myAnyURI>
+  <myQName>String</myQName>
+  <myNOTATION>jpeg</myNOTATION>
+  <noContent>text</noContent>
+</root>

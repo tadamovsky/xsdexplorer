@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<n1:Root2 xmlns:n1="http://aaa.com/formTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Attribute1="String" Attribute2="0" xsi:schemaLocation="http://aaa.com/formTest elQualified.xsd">
+	<n1:Element2>String</n1:Element2>
+	<n1:globalEl2 aaa="text">String</n1:globalEl2>
+</n1:Root2>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="seq3">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="child" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element name="el11" type="xs:string" maxOccurs="unbounded"/>
+							<xs:element name="el1" type="xs:string"/>
+							<xs:element name="el2">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="el2child" type="xs:string" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+						<xs:attribute name="chAttr"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

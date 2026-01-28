@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="allSimpleTypes.xsd">
+	<myString>String</myString>
+	<myNormalizedString>normalizedString</myNormalizedString>
+	<myToken>token</myToken>
+	<myLanguage>en-us</myLanguage>
+	<myNMTOKEN>NMTOKEN</myNMTOKEN>
+	<myNMTOKENS>NMTOKEN</myNMTOKENS>
+	<myName>Name</myName>
+	<myNCName>NCName</myNCName>
+	<myID>ID1</myID>
+	<myIDREF>ID1</myIDREF>
+	<myIDREFS>ID1</myIDREFS>
+	<myInteger>0</myInteger>
+	<myNonPositiveInteger>0</myNonPositiveInteger>
+	<myNegativeInteger>-2</myNegativeInteger>
+	<myLong>0</myLong>
+	<myInt>0</myInt>
+	<myShort>4096</myShort>
+	<myByte>127</myByte>
+	<myNonNegativeInteger>0</myNonNegativeInteger>
+	<myUnsignedLong>4294967295</myUnsignedLong>
+	<myUnsignedInt>0</myUnsignedInt>
+	<myUnsignedShort>65535</myUnsignedShort>
+	<myUnsignedByte>255</myUnsignedByte>
+	<myPositiveInteger>2</myPositiveInteger>
+	<myDecimal>0</myDecimal>
+	<myFloat>3.141590118408203125</myFloat>
+	<myDouble>3.1415926535897900073734945</myDouble>
+	<myDuration>P1Y2M2DT10H30M</myDuration>
+	<myDateTime>2001-12-17T09:30:47Z</myDateTime>
+	<myTime>09:30:47+05:00</myTime>
+	<myDate>1957-08-13</myDate>
+	<myGYearMonth>2001-12</myGYearMonth>
+	<myGYear>2001</myGYear>
+	<myGMonthDay>--12-17</myGMonthDay>
+	<myGDay>---17</myGDay>
+	<myGMonth>--12</myGMonth>
+	<myBoolean>true</myBoolean>
+	<myBase64Binary>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</myBase64Binary>
+	<myHexBinary>41394644363445313243</myHexBinary>
+	<myAnyURI>http://www.altova.com/</myAnyURI>
+	<myQName>xml:space</myQName>
+	<myNOTATION>*** ERROR ***</myNOTATION>
+</root>

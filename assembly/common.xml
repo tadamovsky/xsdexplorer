@@ -1,0 +1,30 @@
+<component xmlns="http://maven.apache.org/ASSEMBLY/2.2.0">
+	
+	<dependencySets>
+		<dependencySet>
+			<excludes>
+				<exclude>edu.princeton.cup:java-cup</exclude>
+				<exclude>com.evolvedbinary.thirdparty.org.eclipse.wst.xml:xpath2</exclude>
+				<exclude>dk.brics:*</exclude>
+				<exclude>com.google.code.findbugs:*</exclude>
+			</excludes>
+			
+			<outputDirectory>modules</outputDirectory>
+			<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+		</dependencySet>
+	
+	
+		<dependencySet>
+			<includes>
+				<include>edu.princeton.cup:java-cup</include>
+				<include>com.evolvedbinary.thirdparty.org.eclipse.wst.xml:xpath2</include>
+				<include>dk.brics:*</include>
+				<include>com.google.code.findbugs:*</include>
+			</includes>
+			<outputDirectory>modules/lib</outputDirectory>
+			<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+		</dependencySet>
+
+	</dependencySets>
+
+</component>

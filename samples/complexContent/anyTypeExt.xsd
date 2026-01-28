@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:attributeGroup name="AssociationAttributeGroup">
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:attributeGroup>
+
+    <xs:element name="item" type="DataValuePropertyType"/>
+
+    <xs:complexType name="DataValuePropertyType">
+        <xs:annotation>
+            <xs:documentation>Use to point or include data values inline</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="xs:anyType">
+                <xs:attribute name="recordCount" type="xs:positiveInteger"/>
+                <xs:attributeGroup ref="AssociationAttributeGroup"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+	
+	
+	   <xs:element name="item2">
+	    <xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="xs:anyType">
+					<xs:attribute name="recordCount" type="xs:positiveInteger"/>
+					<xs:attributeGroup ref="AssociationAttributeGroup"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		</xs:element>
+</xs:schema>

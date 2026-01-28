@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Sea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FishSubGroup"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+ <xs:element name="Sea2">
+    <xs:complexType>
+      <xs:sequence>
+		<xs:element name="aaa" type="xs:string"></xs:element>
+        <xs:element ref="FishSubGroup"
+                    minOccurs="0" maxOccurs="unbounded"/>
+		<xs:element name="bbb" type="xs:string"></xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FishSubGroup" abstract="true"/>
+
+  <xs:element name="Tuna" type="FishType" substitutionGroup="FishSubGroup"/>
+  <xs:element name="Carp" type="FishType" substitutionGroup="FishSubGroup"/>
+  <xs:element name="Salmon" type="FishType" substitutionGroup="FishSubGroup"/>
+
+  <xs:complexType name="FishType">
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

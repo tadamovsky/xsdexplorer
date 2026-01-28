@@ -1,0 +1,118 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="sizes" type="SizesType">
+		<xs:annotation>
+			<xs:documentation>fdsa fds fsdukh sdk dsfukg ksdfhdsfgdskfjkdsjf s sdlj sdlk dslkjfl sldgsldj lsdjglsdj sldldskgj dsl lsdj glsd sl gsldgjsldg sdlgjlsdkgjlsd lsd glsdkjgdsl lsdjglsdjglsdkgj lsd gsdlkjgldskjglds lsdjglsdjgldskjglsdkjgkldsjgkldsjglkdsjglkds glsdjg lsdkjgldskjgldksjgldskjgldsjgldsjgldsjgldsjglkdsjg dslg lsd gldsjgldskjgldsjglsdj llg sdlgj dslg lds lsd glsd glsdjglsdgj lsdgjlsgjlsgjsdlkg lsd ls glsjgsl lsgj fslgjlsjglsdjgsdlkgv ls slgjglksdjgklsdjglksdjglsdjglsdkgjlksdjglksdjglksdjglsdk lksdgjksdgjlksdjg  ksdjg lkdj dlgjdklgjldfk ld dljgdlk dkl dkjgkldf dl,jg ldgjudlkfj ldg dlkgjkldfgjl dldfkj dgjdfkgjdk kdlfgj dklgjdfkjg dfkgjdfk dkgjdkgjdkgj dkg dkgj dkgj kdgj kdgjk ddk gkdg dkgjd kdjgkd kdgjdkjgdkgjkd gjdkjgk djgkdj kdgjkdjkdfjgkdf kdfgjkdfgjkdfjgkdfjgkdfjgkdfjgkdfjgkdfjgkdf kdfjgkdfgjkdfjgkdfjgkfdjgkdfjgkdfjgkdfjgkdfjgkdfjgkfdjgkdfjgfdkgjkfdjgkfdjgkdfjgkfdjgkfdjgkfdjgkdfjgkfdgjkfdjgkfdjgfdkjgdkfgjfdkjgdfkjgkdfjg</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="empty"></xs:element>
+	
+	<!-- abstract with subst group, legal though pointless -->
+	<!--xs:element name="emptyAsbtract" abstract="true"></xs:element-->
+	
+	<xs:complexType name="SizesType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>fdsj dsj sdkhfjksdfhdskhf sdfhsdjkfhdsjkghdsjk ksdkjghdskghdskjhgsdkjghdskjghsdkjhgdsjkhgdsjkhjkjkfhjdkshfjkdshfdjsk dsjkfhdsjfhdsjkfh sdkjfhdjskfhdjshfjdshfdjsfhjdshfjdshfjdshfjdshfdjsfhjdsfhjdshfjdshfjdshfjdshfjdshfdsjjhfjdshfjdsfhdsjfhjdshfjdshfhdsjfhjds fdj hdjs sjdfhjds sdjhfjdshfjds sjdhfjds sdjfhjdsfhdjsfhjdshfjdshfjdshfjds sdjfhjsdfhjdshfjsd hfdsjhfjdshfjdshfjdshfjdshffdsh sdjfhdsjfhjdshfjdshfj sdjfhdsjhfjdshfjdshfjdshf sdjfhdjsfhdsjhfjdshf</xs:documentation>
+			</xs:annotation>
+			<xs:element name="anyS" type="xs:anySimpleType"/>
+			<xs:element name="negInt" type="xs:negativeInteger"/>
+			<xs:element name="dressSize" type="DressSizeType"/>
+			<xs:element name="mediumDressSize" type="MediumDressSizeType"/>
+			<xs:element name="smallDressSize" type="SmallDressSizeType"/>
+			<xs:element name="smlxSize" type="SMLXSizeType"/>
+			<xs:element name="xsmlxSize" type="XSMLXSizeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DressSizeType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="2"/>
+			<xs:maxInclusive value="18"/>
+			<xs:pattern value="\d{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MediumDressSizeType">
+		<xs:restriction base="DressSizeType">
+			<xs:minInclusive value="8"/>
+			<xs:maxInclusive value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SmallDressSizeType">
+		<xs:restriction base="DressSizeType">
+			<xs:minInclusive value="2"/>
+			<xs:maxInclusive value="6"/>
+			<xs:pattern value="\d{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SMLXSizeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="small"/>
+			<xs:enumeration value="medium"/>
+			<xs:enumeration value="large"/>
+			<xs:enumeration value="extra large"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="XSMLXSizeType">
+		<xs:union memberTypes="SMLXSizeType">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="extra small"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	
+	<xs:simpleType name="timeValueType">
+	  <xs:restriction base="xs:token">
+		<xs:pattern value="\d{2}:\d{2}"/>
+	  </xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IndicatorType">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value="false"/>
+			<xs:pattern value="true"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="timeType">
+	  <xs:simpleContent>
+		<xs:extension base="timeValueType">
+		  <xs:attribute name="format">
+			<xs:simpleType>
+			  <xs:restriction base="xs:token">
+				<xs:enumeration value="seconds"/>
+				<xs:enumeration value="minutes"/>
+				<xs:enumeration value="hours"/>
+			  </xs:restriction>
+			</xs:simpleType>
+		  </xs:attribute>
+		</xs:extension>
+	  </xs:simpleContent>
+	</xs:complexType>	
+	
+	<xs:complexType name="timeType2">
+	  <xs:simpleContent>
+		<xs:extension base="timeType">
+		  <xs:attribute name="format2">
+			<xs:simpleType>
+			  <xs:restriction base="xs:token">
+				<xs:enumeration value="seconds"/>
+				<xs:enumeration value="minutes"/>
+				<xs:enumeration value="hours"/>
+			  </xs:restriction>
+			</xs:simpleType>
+		  </xs:attribute>
+		  
+		</xs:extension>
+	  </xs:simpleContent>
+	</xs:complexType>		
+	
+	<xs:element name="complexTypeSimpleContent" type="timeType"></xs:element>
+	<xs:element name="complexTypeSimpleContent2" type="timeType2"></xs:element>
+
+	
+	<xs:element name="Customer_name_default" type="xs:string" default="unknown"/>
+	<xs:element name="Customer_location_fixed" type="xs:string" fixed=" UK"/> 	
+	
+	<xs:element name="restricted_bool" type="IndicatorType" /> 	
+</xs:schema>

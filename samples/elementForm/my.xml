@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ns0:Root xmlns:ns0="http://aaa.com/formTest" xmlns:ns1="http://www.w3.org/2001/XMLSchema" Attribute1="aaa" Attribute2="aaa">
+  <Element1>string</Element1>
+  <ns0:globalEl aaa="aaa">string</ns0:globalEl>
+  <ns0:Root2 Attribute1="aaa" Attribute2="aaa">
+    <ns0:Element2>string</ns0:Element2>
+    <ns0:globalEl2 aaa="aaa">string</ns0:globalEl2>
+  </ns0:Root2>
+</ns0:Root>

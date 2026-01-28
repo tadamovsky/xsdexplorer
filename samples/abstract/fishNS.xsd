@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ns1="http://test.com/source/" targetNamespace="http://test.com/source/">
+
+  <xs:element name="Sea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:FishSubGroup"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FishSubGroup" abstract="true"/>
+
+  <xs:element name="Tuna" type="ns1:FishType" substitutionGroup="ns1:FishSubGroup"/>
+  <xs:element name="Carp" type="ns1:FishType" substitutionGroup="ns1:FishSubGroup"/>
+  <xs:element name="Salmon" type="ns1:FishType" substitutionGroup="ns1:FishSubGroup"/>
+
+  <xs:complexType name="FishType">
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane headerText="Generate sample options" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xsdexplorer.tools.gensample.GenSampleOptionsController">
+   <content>
+      <VBox>
+         <children>
+            <GridPane prefHeight="165.0" prefWidth="611.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.0" minWidth="10.0" prefWidth="262.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="349.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Repeated Count" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="optCheckBox" mnemonicParsing="false" selected="true" text="Create optional elements/attributes" GridPane.columnSpan="2" />
+                  <TextField fx:id="repeatedCountText" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="repeatedChoiceCreateAllBox" mnemonicParsing="false" selected="true" text="For repeating Choice, create all options (otherwise, first option is always created)" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <Label text="Output file name" GridPane.rowIndex="2" />
+                  <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="browseBtn" mnemonicParsing="false" onAction="#onBrowserBtn" text="Browse" />
+                        <TextField fx:id="outputFilename" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <Label text="Select Root" />
+            <TreeView fx:id="treeView" prefHeight="308.0" prefWidth="611.0" showRoot="false" />
+         </children>
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="OK" />
+      <ButtonType fx:constant="CANCEL" />
+   </buttonTypes>
+</DialogPane>

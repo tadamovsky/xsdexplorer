@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://aaa.com/formTest" targetNamespace="http://aaa.com/formTest" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="globalEl2">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="aaa"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Root2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Element2" type="xs:string"/>
+				<xs:element ref="globalEl2"/>
+			</xs:sequence>
+			<xs:attribute name="Attribute1" type="xs:string"/>
+			<xs:attribute name="Attribute2" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

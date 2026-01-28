@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="restriction.xsd">
+	<BillingAddress>
+		<street>String</street>
+		<city>String</city>
+		<zipcode>0</zipcode>
+		<country>US</country>
+		<Department>Accounts Payable</Department>
+	</BillingAddress>
+	<BillingAddressRest>
+		<street>String</street>
+		<city>String</city>
+		<zipcode>0</zipcode>
+		<country>US</country>
+	</BillingAddressRest>
+	<BillingAddressRestAnon>
+		<street>String</street>
+		<city>String</city>
+		<zipcode>0</zipcode>
+		<country>US</country>
+	</BillingAddressRestAnon>
+	<BBB>
+		<AA1>String</AA1>
+		<!--AA2>String</AA2-->
+		<BB>US</BB>
+	</BBB>
+</Root>
