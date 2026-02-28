@@ -1,0 +1,76 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:simpleType name="mountainbikesize">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="small"/>
+			<xs:enumeration value="medium"/>
+			<xs:enumeration value="large"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="FamilyMountainBikeSizes">
+		<xs:simpleContent>
+			<xs:extension base="mountainbikesize">
+				<xs:attribute name="familyMember" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="ChildMountainBikeSizes">
+		<xs:simpleContent>
+			<xs:restriction base="FamilyMountainBikeSizes">
+				<xs:enumeration value="small"/>
+				<xs:enumeration value="medium"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<!-- 
+    A named simpleType derived by restriction.
+    The base for the restriction is an anonymous simpleType, which itself
+    restricts xs:string.
+	-->
+	<xs:simpleType name="USSocialSecurityNumberType">
+		<xs:restriction>
+			<!-- 1. This is the anonymous simpleType that serves as the base -->
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<!-- The inner restriction sets a length constraint -->
+					<xs:length value="11"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<!-- 2. This is the facet applied to the anonymous base type above -->
+			<xs:pattern value="\d{3}-\d{2}-\d{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- An element that uses our new type -->
+	<xs:element name="ssn" type="USSocialSecurityNumberType"/>
+	
+	<!-- 
+    A named simpleType with multiple nested anonymous simpleType restrictions.
+    A valid value must satisfy the constraints from ALL levels.
+	-->
+	<xs:simpleType name="SpecialProductCodeType">
+		<!-- Level 1 (Outermost): The final named type. -->
+		<xs:restriction>
+			<!-- Level 2 (Middle): The base for the final type is another anonymous type. -->
+			<xs:simpleType>
+				<xs:restriction>
+					<!-- Level 3 (Innermost): The base for the middle type is the innermost anonymous type. -->
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<!-- The most fundamental constraint: clean up whitespace. -->
+							<xs:whiteSpace value="collapse"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!-- Facet for Level 2: Enforce a fixed length on the whitespace-collapsed string. -->
+					<xs:length value="8"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:pattern value="[A-Z]{2}-\d{5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- An element that uses our highly-restricted type -->
+	<xs:element name="productCode" type="SpecialProductCodeType"/>
+</xs:schema>

@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/ns"
+           xmlns:tns="http://example.com/ns"
+           elementFormDefault="qualified">
+
+  <xs:import schemaLocation="s.xsd"/>
+
+  <xs:element name="example" type="SizesType"/>
+
+</xs:schema>

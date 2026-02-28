@@ -1,10 +1,12 @@
 package com.xsdexplorer;
 import static org.apache.xerces.impl.xs.SchemaGrammar.isAnyType;
+import static com.xsdexplorer.SchemaUtil.*;
 
 import java.util.*;
 
+import javax.xml.namespace.QName;
+
 import org.apache.commons.lang3.tuple.Pair;
-import org.apache.xerces.impl.xs.XSComplexTypeDecl;
 import org.apache.xerces.xs.*;
 
 import com.google.common.base.Preconditions;
@@ -23,7 +25,9 @@ public class ComplexTypeExtractor {
     //whether to split type if possible
     private boolean splitRequested; 
     
-    ComplexTypeExtractor(boolean splitRequested) {
+    private boolean splitRestrictionAttributes; //whether to split restriction attributes to contain only changed attributes (if false, all attributes are in restriction part)
+
+    public ComplexTypeExtractor(boolean splitRequested) {
         this.splitRequested = splitRequested;
     }
     
@@ -31,13 +35,13 @@ public class ComplexTypeExtractor {
         return baseTypeSize;
     }
     
-    private static List<XSParticle> removeSeqOfExt(XSComplexTypeDecl td) {
+    private static List<XSParticle> removeSeqOfExt(XSComplexTypeDefinition td) {
         XSParticle p = td.getParticle();
         
         LinkedList<XSParticle> ret = new LinkedList<>();
         ret.add(p);
         while (!isAnyType(td/*.getBaseType()*/) && td.getDerivationMethod() == XSConstants.DERIVATION_EXTENSION) {
-            XSComplexTypeDecl base = (XSComplexTypeDecl) td.getBaseType();
+            XSComplexTypeDefinition base = (XSComplexTypeDefinition) td.getBaseType();
             XSParticle baseP = base.getParticle();
             if (baseP == null) { //nothing in base type (only attributes)
                 return ret;
@@ -58,14 +62,14 @@ public class ComplexTypeExtractor {
         return ret;
     }    
     
-    Pair<List<XSAttributeUse>, List<XSAttributeUse>> getAttributesSplitByExtension(XSComplexTypeDecl t, Options options) {
-        List<XSAttributeUse> allAttrs = options.showAttributes.get() ? castObjectList(t.getAttributeUses()) : Collections.emptyList();
-        if (!options.showTypes.get() || !splitRequested || allAttrs.isEmpty() || !(t.getBaseType() instanceof XSComplexTypeDecl)) { //no split
+    public Pair<List<XSAttributeUse>, List<XSAttributeUse>> getAttributesSplitByExtension(XSComplexTypeDefinition t, Options options) {
+        List<XSAttributeUse> allAttrs = options.showAttributes.get() ? castList(t.getAttributeUses()) : Collections.emptyList();
+        if (!options.showTypes.get() || !splitRequested || allAttrs.isEmpty() || !(t.getBaseType() instanceof XSComplexTypeDefinition)) { //no split
             return Pair.of(Collections.emptyList(), allAttrs);
         }
         
-        if (/*t.getBaseType() != fAnyType && */t.getDerivationMethod() == XSConstants.DERIVATION_EXTENSION) {
-            List<XSAttributeUse> baseAttrs = castObjectList(((XSComplexTypeDecl) t.getBaseType()).getAttributeUses());
+        if (/*t.getBaseType() != fAnyType && */t.getDerivationMethod() == XSConstants.DERIVATION_EXTENSION || splitRestrictionAttributes) {
+            List<XSAttributeUse> baseAttrs = castList(((XSComplexTypeDefinition) t.getBaseType()).getAttributeUses());
             if (!baseAttrs.isEmpty()) {
                 ArrayList<XSAttributeUse> extendedAttr = new ArrayList<XSAttributeUse>(allAttrs);
                 extendedAttr.removeAll(baseAttrs);
@@ -75,14 +79,14 @@ public class ComplexTypeExtractor {
         return Pair.of(Collections.emptyList(), allAttrs);
     }
     
-    Pair<List<XSParticle>, List<XSParticle>> getParticlesSplitByExtension(XSComplexTypeDecl td, Options options) {
+    public Pair<List<XSParticle>, List<XSParticle>> getParticlesSplitByExtension(XSComplexTypeDefinition td, Options options) {
         XSParticle p = td.getParticle();
         if (!options.showTypes.get() || !splitRequested || p == null) //no split
             return Pair.of(Collections.emptyList(), p == null ? Collections.emptyList() : removeSeqOfExt(td));
         
         //there are elements in base or ext or both
         if (/*td.getBaseType() != fAnyType && */td.getDerivationMethod() == XSConstants.DERIVATION_EXTENSION) {
-            XSComplexTypeDecl base = (XSComplexTypeDecl) td.getBaseType();
+            XSComplexTypeDefinition base = (XSComplexTypeDefinition) td.getBaseType();
             XSParticle baseP = base.getParticle();
             if (baseP == null) { //nothing in base type (only attributes)
                 return Pair.of(Collections.emptyList(), List.of(p));
@@ -98,7 +102,7 @@ public class ComplexTypeExtractor {
         return Pair.of(Collections.emptyList(), List.of(p));
     }    
     
-    public List<TreeNodeControl> extractComplexTypeChildren(XSComplexTypeDecl td, XsdTreeNode parent, Options options) {
+    public List<TreeNodeControl> extractComplexTypeChildren(XSComplexTypeDefinition td, XsdTreeNode parent, Options options) {
         Pair<List<XSAttributeUse>, List<XSAttributeUse>> attrs = getAttributesSplitByExtension(td, options);
         Pair<List<XSParticle>, List<XSParticle>> particles = getParticlesSplitByExtension(td, options);
         baseTypeSize = (attrs.getLeft().isEmpty() ? 0 : 1) + particles.getLeft().size();
@@ -122,14 +126,36 @@ public class ComplexTypeExtractor {
         return ret;
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> List<T> castObjectList(XSObjectList l){
-        return l;
+    public Collection<XSAttributeUse> getRestrictionForbiddenAttributes(XSComplexTypeDefinition ct) {
+        List<XSAttributeUse> attrs = castList(ct.getAttributeUses());
+        XSComplexTypeDefinition base = (XSComplexTypeDefinition) ct.getBaseType();
+        List<XSAttributeUse> baseAttrs = castList(base.getAttributeUses());
+        if (attrs.size() == baseAttrs.size()) {
+            return Collections.emptyList();
+        }
+        HashMap<QName, XSAttributeUse> baseAttrsSet = new HashMap<>();
+        for (XSAttributeUse au : baseAttrs) {
+            baseAttrsSet.put(new QName(au.getAttrDeclaration().getNamespace(), au.getAttrDeclaration().getName()), au);
+        }
+        for (XSAttributeUse au : attrs) {
+            QName qn = new QName(au.getAttrDeclaration().getNamespace(), au.getAttrDeclaration().getName());
+            baseAttrsSet.remove(qn);
+        }
+        return baseAttrsSet.values();
     }
-   
-    @SuppressWarnings("unchecked")
-    private static List<XSParticle> groupParticles(XSTerm term) {
-        return ((XSModelGroup) term).getParticles();
-    }        
 
+    public XSWildcard getAttributeWildcard(XSComplexTypeDefinition ct) {
+        XSWildcard w = ct.getAttributeWildcard();
+        if (w == null) {
+            return null;
+        }
+        XSComplexTypeDefinition base = (XSComplexTypeDefinition) ct.getBaseType();
+        XSWildcard baseW = base.getAttributeWildcard();
+        return w == baseW ? null : w;
+    }
+
+    public void setSplitRestrictionAttributes(boolean splitRestrictionAttributes) {
+        this.splitRestrictionAttributes = splitRestrictionAttributes;
+    }
+ 
 }

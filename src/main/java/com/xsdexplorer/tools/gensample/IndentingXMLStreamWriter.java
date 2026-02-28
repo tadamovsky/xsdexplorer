@@ -13,7 +13,8 @@ public class IndentingXMLStreamWriter extends StreamWriter2Delegate {
     private String indentStep = "  ";
     private int depth = 0;
     private boolean seenText = false;
-
+    private boolean mStartElementOpen;
+    
     public IndentingXMLStreamWriter(XMLStreamWriter2 writer) {
         super(writer);
         mDelegate2 = writer;
@@ -30,20 +31,23 @@ public class IndentingXMLStreamWriter extends StreamWriter2Delegate {
             super.writeCharacters("\n");
         }
         doIndent();
+        mStartElementOpen = true;
         depth++;
     }
 
     private void onEndElement() throws XMLStreamException {
         depth--;
-        if (!seenText) {
+        if (!seenText && !mStartElementOpen) {
             super.writeCharacters("\n");
             doIndent();
         }
+        mStartElementOpen = false;
         seenText = false;
     }
 
     private void onEmptyElement() throws XMLStreamException {
         seenText = false;
+        mStartElementOpen = false;
         if (depth > 0) {
             super.writeCharacters("\n");
         }
@@ -107,16 +111,19 @@ public class IndentingXMLStreamWriter extends StreamWriter2Delegate {
 
     public void writeCharacters(String text) throws XMLStreamException {
         seenText = true;
+        mStartElementOpen = false;
         super.writeCharacters(text);
     }
 
     public void writeCharacters(char[] text, int start, int len) throws XMLStreamException {
         seenText = true;
+        mStartElementOpen = false;
         super.writeCharacters(text, start, len);
     }
 
     public void writeCData(String data) throws XMLStreamException {
         seenText = true;
+        mStartElementOpen = false;
         super.writeCData(data);
     }
     

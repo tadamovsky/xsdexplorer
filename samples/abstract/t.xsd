@@ -1,0 +1,46 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Abstract element with a complex type defining local elements -->
+	<xs:element name="AbstractPerson" abstract="true" type="PersonType"/>
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Age" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Substitution element that substitutes AbstractPerson -->
+	<xs:element name="Employee" substitutionGroup="AbstractPerson" type="EmployeeType"/>
+	<xs:complexType name="EmployeeType">
+		<xs:complexContent>
+			<xs:extension base="PersonType">
+				<xs:sequence>
+					<xs:element name="EmployeeID" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- Another substitution element -->
+	<xs:element name="Customer" substitutionGroup="AbstractPerson" type="CustomerType"/>
+	<xs:complexType name="CustomerType">
+		<xs:complexContent>
+			<xs:extension base="PersonType">
+				<xs:sequence>
+					<xs:element name="CustomerID" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:element name="Customer2" substitutionGroup="AbstractPerson">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="PersonType">
+					<xs:sequence>
+						<xs:element name="CustomerID" type="xs:string"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

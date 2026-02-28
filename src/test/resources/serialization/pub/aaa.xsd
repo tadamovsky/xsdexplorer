@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:aaa="http://aaa" targetNamespace="http://aaa">
+  <xs:element name="Book" substitutionGroup="aaa:Publication" type="aaa:BookType"/>
+  <xs:element name="Book2" substitutionGroup="aaa:Publication2"/>
+  <xs:element name="Catalogue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aaa:Publication" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Magazine" substitutionGroup="aaa:Publication" type="aaa:MagazineType"/>
+  <xs:element name="part" type="aaa:partType"/>
+  <xs:element name="plasticWidget" substitutionGroup="aaa:widget" type="aaa:plasticWidgetType"/>
+  <xs:element name="Publication" abstract="true" type="aaa:PublicationType"/>
+  <xs:element name="Publication2" abstract="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Title" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="widget" type="aaa:widgetType"/>
+  <xs:element name="woodWidget" substitutionGroup="aaa:widget" type="aaa:woodWidgetType"/>
+  <xs:complexType name="BookType">
+    <xs:complexContent>
+      <xs:extension base="aaa:PublicationType">
+        <xs:sequence>
+          <xs:element name="ISBN" type="xs:string"/>
+          <xs:element name="Publisher" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MagazineType">
+    <xs:complexContent>
+      <xs:restriction base="aaa:PublicationType">
+        <xs:sequence>
+          <xs:element ref="aaa:widget"/>
+          <xs:element name="Title" type="xs:string"/>
+          <xs:element name="Date" type="xs:gYear"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="partType">
+    <xs:sequence>
+      <xs:element ref="aaa:widget"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="plasticWidgetType">
+    <xs:complexContent>
+      <xs:extension base="aaa:widgetType">
+        <xs:sequence>
+          <xs:element name="moldProcess" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PublicationType">
+    <xs:sequence>
+      <xs:element ref="aaa:widget"/>
+      <xs:element name="Title" type="xs:string"/>
+      <xs:element name="Author" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+      <xs:element name="Date" type="xs:gYear"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="widgetType">
+    <xs:sequence>
+      <xs:element name="shape" type="xs:string"/>
+      <xs:element ref="aaa:Publication"/>
+      <xs:element name="color" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="woodWidgetType">
+    <xs:complexContent>
+      <xs:extension base="aaa:widgetType">
+        <xs:sequence>
+          <xs:element name="woodType" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

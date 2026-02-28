@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="https://www.example.com/employee" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.example.com/employee">
+  <xs:element name="Employee">
+    <xs:complexType>
+      <xs:group ref="tns:EmployeeRecordGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="ContactInfoGroup">
+    <xs:sequence>
+      <xs:group ref="tns:NameGroup"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="phone" minOccurs="0" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="EmployeeRecordGroup">
+    <xs:sequence>
+      <xs:element name="employeeID" type="xs:string"/>
+      <xs:group ref="tns:ContactInfoGroup"/>
+      <xs:element name="department" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="NameGroup">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

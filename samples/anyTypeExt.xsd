@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Complex type extending xs:anyType -->
+  <xs:complexType name="ExtendedType" mixed="true">
+    <xs:complexContent>
+      <xs:extension base="xs:anyType">
+        <xs:sequence>
+          <xs:element name="FirstName" type="xs:string"/>
+          <xs:element name="LastName" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Element using the extended complex type -->
+  <xs:element name="Person" type="ExtendedType"/>
+
+</xs:schema>

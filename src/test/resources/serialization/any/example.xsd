@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.example.com/main" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/main">
+  <xs:element name="container">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any namespace="##local" processContents="lax"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="container2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any namespace="##local ##targetNamespace" maxOccurs="unbounded" processContents="lax"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="body" type="xs:string"/>
+        <xs:any namespace="##other" processContents="lax"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="person">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="firstname" type="xs:string"/>
+        <xs:element name="lastname" type="xs:string"/>
+      </xs:sequence>
+      <xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Base">
+    <xs:sequence>
+      <xs:element name="note" type="xs:string"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##local" processContents="lax"/>
+  </xs:complexType>
+  <xs:complexType name="Derived">
+    <xs:complexContent>
+      <xs:extension base="tns:Base">
+        <xs:attribute name="fixedAttr" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Derived2">
+    <xs:complexContent>
+      <xs:extension base="tns:Base">
+        <xs:attribute name="fixedAttr" type="xs:string"/>
+        <xs:anyAttribute namespace="##local http://www.example.com"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RestrictedType">
+    <xs:complexContent>
+      <xs:restriction base="tns:Base">
+        <xs:sequence>
+          <xs:element name="note" type="xs:string"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##local"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

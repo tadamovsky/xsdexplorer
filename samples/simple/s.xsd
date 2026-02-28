@@ -1,7 +1,13 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="sizes" type="SizesType">
 		<xs:annotation>
-			<xs:documentation>fdsa fds fsdukh sdk dsfukg ksdfhdsfgdskfjkdsjf s sdlj sdlk dslkjfl sldgsldj lsdjglsdj sldldskgj dsl lsdj glsd sl gsldgjsldg sdlgjlsdkgjlsd lsd glsdkjgdsl lsdjglsdjglsdkgj lsd gsdlkjgldskjglds lsdjglsdjgldskjglsdkjgkldsjgkldsjglkdsjglkds glsdjg lsdkjgldskjgldksjgldskjgldsjgldsjgldsjgldsjglkdsjg dslg lsd gldsjgldskjgldsjglsdj llg sdlgj dslg lds lsd glsd glsdjglsdgj lsdgjlsgjlsgjsdlkg lsd ls glsjgsl lsgj fslgjlsjglsdjgsdlkgv ls slgjglksdjgklsdjglksdjglsdjglsdkgjlksdjglksdjglksdjglsdk lksdgjksdgjlksdjg  ksdjg lkdj dlgjdklgjldfk ld dljgdlk dkl dkjgkldf dl,jg ldgjudlkfj ldg dlkgjkldfgjl dldfkj dgjdfkgjdk kdlfgj dklgjdfkjg dfkgjdfk dkgjdkgjdkgj dkg dkgj dkgj kdgj kdgjk ddk gkdg dkgjd kdjgkd kdgjdkjgdkgjkd gjdkjgk djgkdj kdgjkdjkdfjgkdf kdfgjkdfgjkdfjgkdfjgkdfjgkdfjgkdfjgkdfjgkdf kdfjgkdfgjkdfjgkdfjgkfdjgkdfjgkdfjgkdfjgkdfjgkdfjgkfdjgkdfjgfdkgjkfdjgkfdjgkdfjgkfdjgkfdjgkfdjgkdfjgkfdgjkfdjgkfdjgfdkjgdkfgjfdkjgdfkjgkdfjg</xs:documentation>
+			<xs:documentation xml:lang="en" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+				<xhtml:p>The current status of the order.</xhtml:p>
+				<xhtml:ul>
+					<xhtml:li><strong>Pending:</strong> Waiting for payment.</xhtml:li>
+					<xhtml:li><strong>Shipped:</strong> Item is in transit.</xhtml:li>
+				</xhtml:ul>
+			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="empty"></xs:element>
@@ -72,6 +78,17 @@
 			<xs:pattern value="false"/>
 			<xs:pattern value="true"/>
 		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="myUnion">
+	  <xs:union>
+		<xs:simpleType>
+		  <xs:restriction base="xs:integer"/>
+		</xs:simpleType>
+		<xs:simpleType>
+		  <xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	  </xs:union>
 	</xs:simpleType>
 
 	<xs:complexType name="timeType">

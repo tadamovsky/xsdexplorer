@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://example.com/ns" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/ns">
+  <xs:element name="Record">
+    <xs:complexType>
+      <xs:attributeGroup ref="tns:CommonAttributes"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="CommonAttributes">
+    <xs:attribute name="status" form="qualified" type="xs:string"/>
+  </xs:attributeGroup>
+</xs:schema>

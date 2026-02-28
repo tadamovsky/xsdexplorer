@@ -39,6 +39,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import static com.xsdexplorer.SchemaUtil.sortByName;
 
 public class GlobalsToolbar {
     
@@ -156,8 +157,7 @@ public class GlobalsToolbar {
             //if (XMLConstants.W3C_XML_SCHEMA_NS_URI.equals(ns) && !includeSchemaNs) {
             //    continue;
             //}            
-            List<XSObject> elements = getComponentsByNamespace(ELEMENT_DECLARATION, ns).stream()
-                    .sorted((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())).toList();
+            List<XSObject> elements = sortByName(getComponentsByNamespace(ELEMENT_DECLARATION, ns));
             Map<Boolean, List<XSObject>> coll = getComponentsByNamespace(TYPE_DEFINITION, ns).stream()//.filter(t -> t instanceof XSComplexTypeDecl)
                     .sorted((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())).collect(Collectors.partitioningBy(t -> t instanceof XSComplexTypeDecl));
             

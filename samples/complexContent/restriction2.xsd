@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.org/ns" xmlns:tns="http://example.org/ns" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Base complex type with particle + attributes -->
+	<xs:complexType name="BaseType">
+		<xs:sequence>
+			<xs:element name="A" type="xs:string"/>
+			<xs:element name="B" type="xs:string" minOccurs="0"/>
+			<xs:element name="C" type="xs:string" minOccurs="0" maxOccurs="5"/>
+		</xs:sequence>
+		<xs:attribute name="lang" type="xs:language" use="optional"/>
+		<xs:attribute name="id" type="xs:ID" use="required"/>
+		<xs:attribute name="status" type="xs:string" use="optional" fixed="active"/>
+		<!-- base allows attributes from any namespace -->
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	
+	<!-- Derived: change content model (remove C, tighten types/occurs) and forbid attributes -->
+	<xs:complexType name="DerivedRestrictedType">
+		<xs:complexContent>
+			<xs:restriction base="tns:BaseType">
+				<!-- Content model changed: C removed, B made required, A type narrowed -->
+				<xs:sequence>
+					<xs:element name="A" type="xs:normalizedString"/>
+					<!-- narrower than xs:string -->
+					<xs:element name="B" type="xs:string" minOccurs="1"/>
+					<!-- previously minOccurs=0 -->
+					<!-- C is omitted (removed) -->
+				</xs:sequence>
+				<!-- forbid attributes that base allowed -->
+				<xs:attribute name="lang" use="prohibited"/>
+				<xs:attribute name="status" use="prohibited"/>
+				<!-- keep id (required) -->
+				<xs:attribute name="id" type="xs:ID" use="required"/>
+				<!-- narrow the wildcard: base allowed ##any, derived allows only ##other (a subset) -->
+				<xs:anyAttribute namespace="##other" processContents="lax"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- Element declarations to exercise types -->
+	<xs:element name="baseRoot" type="tns:BaseType"/>
+	<xs:element name="derivedRoot" type="tns:DerivedRestrictedType"/>
+	<!-- Base complexType with simpleContent (string content + attributes) -->
+	
+	<xs:complexType name="SimpleBaseType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="code" type="xs:string" use="optional"/>
+				<xs:attribute name="flag" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<!-- Derived: restrict simpleContent with facets and forbid an attribute -->
+	<xs:complexType name="SimpleDerived">
+		<xs:simpleContent>
+			<xs:restriction base="tns:SimpleBaseType">
+				<!-- tighten the simple content via an anonymous simpleType with facets -->
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<!-- example facets: content must be like ABC-123 (3 uppercase letters, dash, 3 digits) -->
+						<xs:pattern value="[A-Z]{3}-\d{3}"/>
+						<xs:length value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+				<!-- attributes: prohibit 'flag', make 'code' required (narrowing) -->
+				<xs:attribute name="flag" use="prohibited"/>
+				<xs:attribute name="code" type="xs:string" use="required"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:element name="simpleBase" type="tns:SimpleBaseType"/>
+	<xs:element name="simpleDerived" type="tns:SimpleDerived"/>
+	
+
+	<!-- Type with restriction of xs:string and attribute - cannot be done inline in one type -->
+	
+	<xs:simpleType name="RestrictedString">
+	  <xs:restriction base="xs:string">
+		<xs:pattern value="[A-Z]{3}-[0-9]{3}"/> 
+	  </xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="StringWithAttribute">
+	  <xs:simpleContent>
+		<xs:extension base="tns:RestrictedString">
+		  <xs:attribute name="myAttribute" type="xs:string" use="optional"/>
+		</xs:extension>
+	  </xs:simpleContent>
+	</xs:complexType>	
+
+	
+</xs:schema>

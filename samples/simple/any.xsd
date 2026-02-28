@@ -1,0 +1,82 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/main" xmlns:tns="http://www.example.com/main" elementFormDefault="qualified">
+	
+	<xs:element name="container">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- This allows any element that has NO namespace -->
+				<xs:any namespace="##local" processContents="lax"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="container2">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Allows elements from the targetNamespace OR no namespace -->
+				<xs:any namespace="##targetNamespace ##local" processContents="lax" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="body" type="xs:string"/>
+				<xs:any namespace="##other" processContents="lax"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="person">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstname" type="xs:string"/>
+				<xs:element name="lastname" type="xs:string"/>
+			</xs:sequence>
+			<xs:anyAttribute processContents="lax"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- Base Type -->
+	<xs:complexType name="Base">
+		<xs:sequence>
+			<xs:element name="note" type="xs:string"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##local" processContents="lax"/>
+	</xs:complexType>
+	
+	<!-- Extended Type -->
+	<xs:complexType name="Derived">
+		<xs:complexContent>
+			<xs:extension base="tns:Base">
+				<xs:attribute name="fixedAttr" type="xs:string"/>
+				<!-- inherit anyAttribute -->
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="Derived2">
+		<xs:complexContent>
+			<xs:extension base="tns:Base">
+				<xs:attribute name="fixedAttr" type="xs:string"/>
+				<!-- This merges with the base anyAttribute -->
+				<xs:anyAttribute namespace="http://www.example.com" processContents="strict"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- 2. Restricted Type: Narrows the wildcard -->
+	<xs:complexType name="RestrictedType">
+		<xs:complexContent>
+			<xs:restriction base="tns:Base">
+				<xs:sequence>
+					<xs:element name="note" type="xs:string"/>
+				</xs:sequence>
+				<!-- 
+				RESTRICTION RULES:
+			   - namespace: Must be a subset of the base (limiting ##any to a specific URI)
+			   - processContents: Can be made more restrictive (lax -> strict)
+			-->
+			<xs:anyAttribute namespace="##local" processContents="strict"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>	
+	
+</xs:schema>

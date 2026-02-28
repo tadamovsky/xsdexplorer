@@ -1,0 +1,16 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="status">
+    <xs:annotation>
+      <xs:documentation xml:lang="en" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <xhtml:p>The current status of the order.</xhtml:p>
+        <xhtml:ul>
+          <xhtml:li><strong>Pending:</strong> Waiting for payment.</xhtml:li>
+          <xhtml:li><strong>Shipped:</strong> Item is in transit.</xhtml:li>
+        </xhtml:ul>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+  </xs:element>
+</xs:schema>

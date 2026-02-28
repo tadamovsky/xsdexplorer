@@ -1,0 +1,73 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://example.com/identifiers" targetNamespace="http://example.com/identifiers" elementFormDefault="qualified">
+	<!-- 1. The Global Base Type -->
+	<!-- A generic identifier that holds a string and has an optional 'system' attribute. -->
+	<xs:complexType name="IdentifierType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="system" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<!-- 2. The Derived Type with the Anonymous simpleType -->
+	<!-- This restricts IdentifierType to be a specific patient ID format. -->
+	<xs:complexType name="PatientIDType">
+		<xs:simpleContent>
+			<xs:restriction base="tns:IdentifierType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="PID-\d{8}"/>
+					</xs:restriction>
+				</xs:simpleType>
+				<xs:attribute name="system" type="xs:string" use="required" fixed="urn:hospital:patient-ids"/>
+			</xs:restriction>
+			<!-- 
+          This is the anonymous simpleType. It defines the new, stricter
+          rules for the simple content (the text value).
+        -->
+			<!-- 
+          We must also handle the attributes. Here, we make the 'system' 
+          attribute required and give it a fixed value.
+        -->
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PatientIDType2">
+		<xs:simpleContent>
+			<xs:restriction base="tns:IdentifierType">
+				<xs:pattern value="PID-\d{8}"/>
+				<xs:attribute name="system" type="xs:string" use="required" fixed="urn:hospital:patient-ids"/>
+			</xs:restriction>
+			<!-- 
+          We must also handle the attributes. Here, we make the 'system' 
+          attribute required and give it a fixed value.
+        -->
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PatientIDType3">
+		<xs:simpleContent>
+			<xs:restriction base="tns:IdentifierType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="PID-\d{8}"/>
+					</xs:restriction>
+				</xs:simpleType>
+				<xs:length value="12"/>
+				<xs:attribute name="system" type="xs:string" use="required" fixed="urn:hospital:patient-ids"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>	
+	
+	<!-- Elements for demonstration -->
+	<xs:element name="genericID" type="tns:IdentifierType"/>
+	<xs:element name="patientID" type="tns:PatientIDType"/>
+	<xs:element name="patientID2" type="tns:PatientIDType2"/>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="tns:patientID"/>
+				<xs:element ref="tns:patientID2"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -4,6 +4,7 @@
     <xs:attributeGroup name="AssociationAttributeGroup">
         <xs:attribute name="id" type="xs:ID"/>
     </xs:attributeGroup>
+    <xs:attribute name="globalAttr" type="xs:string"/>
 
     <xs:element name="item" type="DataValuePropertyType"/>
 
@@ -15,6 +16,7 @@
             <xs:extension base="xs:anyType">
                 <xs:attribute name="recordCount" type="xs:positiveInteger"/>
                 <xs:attributeGroup ref="AssociationAttributeGroup"/>
+				<xs:attribute ref="globalAttr"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>

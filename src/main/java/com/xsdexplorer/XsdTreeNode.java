@@ -161,18 +161,12 @@ public class XsdTreeNode extends TreeNodeControl {
 	}
 	
 	public String groupCompositor() {
-		final String[] values = { "sequence", "choice", "all" };
-		return values[group().getCompositor() - 1];
+	    return SchemaUtil.groupCompositor(group());
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<XSParticle> groupParticles() {
 		return group().getParticles();
-	}
-	
-	@SuppressWarnings("unchecked")
-    static List<XSParticle> groupParticles(XSTerm term) {
-	    return ((XSModelGroup) term).getParticles();
 	}
 	
     @SuppressWarnings("unchecked")

@@ -1,0 +1,10 @@
+<root xmlns="http://example.com/identifiers">
+	<!-- This is valid because the content matches the pattern "PID-\d{8}" 
+		 and the 'system' attribute has the correct fixed value. -->
+	<patientID  system="urn:hospital:patient-ids">PID-12345678</patientID>
+
+	
+	<patientID2  system="urn:hospital:patient-ids">PID-12345678</patientID2>
+	
+	<patientID2 xmlns="http://example.com/identifiers" system="urn:hospital:patient-ids">P-12345678</patientID2>
+</root>

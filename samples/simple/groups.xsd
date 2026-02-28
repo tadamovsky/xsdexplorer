@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.example.com/employee"
+           xmlns:tns="https://www.example.com/employee"
+           elementFormDefault="qualified">
+
+  <!-- =============================================================== -->
+  <!-- Level 1 (Innermost) Group: Defines basic name components        -->
+  <!-- =============================================================== -->
+  <xs:group name="NameGroup">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+
+  <!-- =============================================================== -->
+  <!-- Level 2 Group: Includes the NameGroup and adds contact info     -->
+  <!-- =============================================================== -->
+  <xs:group name="ContactInfoGroup">
+    <xs:sequence>
+      <!-- This is the first level of nesting -->
+      <xs:group ref="tns:NameGroup"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="phone" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:group>
+
+  <!-- =============================================================== -->
+  <!-- Level 3 (Outermost) Group: Includes the ContactInfoGroup and    -->
+  <!-- adds employee-specific details.                                 -->
+  <!-- =============================================================== -->
+  <xs:group name="EmployeeRecordGroup">
+    <xs:sequence>
+      <xs:element name="employeeID" type="xs:string"/>
+      <!-- This is the second level of nesting -->
+      <xs:group ref="tns:ContactInfoGroup"/>
+      <xs:element name="department" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+
+  <!-- =============================================================== -->
+  <!-- Root element that uses the top-level group to define its content-->
+  <!-- =============================================================== -->
+  <xs:element name="Employee">
+    <xs:complexType>
+      <xs:group ref="tns:EmployeeRecordGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -72,8 +72,7 @@ public class TestGenSample {
                 + "  <myAnyURI>String</myAnyURI>\r\n"
                 + "  <myQName>String</myQName>\r\n"
                 + "  <myNOTATION>jpeg</myNOTATION>\r\n"
-                + "  <noContent>\r\n"
-                + "  </noContent>\r\n"
+                + "  <noContent/>\r\n"
                 + "</root>";
         runTestForRoot("samples/simple/allSimpleTypes.xsd", "root", expected); 
     }           
@@ -124,8 +123,7 @@ public class TestGenSample {
         runTestForRoot("samples/rec/simpleRec.xsd", "locale", "<?xml version='1.0' encoding='UTF-8'?>\r\n"
                 + "<n1:locale xmlns:n1=\"http://test.com/source/\">\r\n"
                 + "  <n1:name>String</n1:name>\r\n"
-                + "  <n1:locales>\r\n"
-                + "  </n1:locales>\r\n"
+                + "  <n1:locales/>\r\n"
                 + "</n1:locale>"); 
     }
 

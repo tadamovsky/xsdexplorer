@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://example.com/ns" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/ns">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:element name="Description">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="tns:LanguageGroup"/>
+          <xs:attribute ref="tns:status" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="status" default="active" type="xs:string"/>
+  <xs:attributeGroup name="LanguageGroup">
+    <xs:attribute ref="xml:lang"/>
+  </xs:attributeGroup>
+</xs:schema>

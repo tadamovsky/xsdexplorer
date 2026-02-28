@@ -11,7 +11,7 @@ import org.apache.xerces.impl.dv.xs.XSSimpleTypeDecl;
 import org.apache.xerces.impl.xs.XSComplexTypeDecl;
 import org.apache.xerces.xs.*;
 import org.codehaus.stax2.XMLStreamWriter2;
-import static com.xsdexplorer.ComplexTypeExtractor.*;
+import static com.xsdexplorer.SchemaUtil.*;
 import static org.apache.xerces.xs.XSConstants.TYPE_DEFINITION;
 import static org.apache.xerces.xs.XSConstants.MODEL_GROUP;
 import static org.apache.xerces.xs.XSConstants.ELEMENT_DECLARATION;
@@ -128,11 +128,6 @@ public class GenSample {
         return (XSComplexTypeDecl) ret;
     }
     
-    @SuppressWarnings("unchecked")
-    private static <T> Collection<T> castList(@SuppressWarnings("rawtypes") Collection l){
-        return l;
-    }
-    
     private Collection<XSTypeDefinition> getTypes() {
         return castList(model.getComponents(TYPE_DEFINITION).values());
     }
@@ -149,12 +144,8 @@ public class GenSample {
         }
     }
     
-    private static String wrapNull(String s) {
-        return s == null ? "" : s;
-    }
-
     private void writeAttributes(XSComplexTypeDecl t) throws XMLStreamException {
-        List<XSAttributeUse> allAttrs = castObjectList(t.getAttributeUses());
+        List<XSAttributeUse> allAttrs = castList(t.getAttributeUses());
         for (XSAttributeUse attr : allAttrs) {
             if (options.createOptional || attr.getRequired()) {
                 String value = null;
@@ -223,7 +214,7 @@ public class GenSample {
                 case MODEL_GROUP: 
                 {
                     XSModelGroup group = (XSModelGroup) term;
-                    List<XSParticle> particles = castObjectList(group.getParticles());
+                    List<XSParticle> particles = castList(group.getParticles());
                     switch (group.getCompositor()) {
                     case XSModelGroup.COMPOSITOR_SEQUENCE:
                     case XSModelGroup.COMPOSITOR_ALL:
@@ -251,7 +242,7 @@ public class GenSample {
                 {
                     XSElementDeclaration el = (XSElementDeclaration) term;
                     if (el.getAbstract()) {
-                        List<XSElementDeclaration> subst = castObjectList(model.getSubstitutionGroup(el));
+                        List<XSElementDeclaration> subst = castList(model.getSubstitutionGroup(el));
                         el = subst.get(0);
                     }
                     if (!processingSet.contains(el.getTypeDefinition()))

@@ -1,0 +1,16 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+<xs:complexType name="RestrictedType">
+  <xs:complexContent>
+    <xs:restriction base="xs:anyType">
+      <!-- Define restrictions here, e.g., no elements, no attributes -->
+      <xs:sequence>
+          <xs:element name="FirstName" type="xs:string"/>
+      </xs:sequence>
+      <!-- Optionally restrict attributes -->
+    </xs:restriction>
+  </xs:complexContent>
+</xs:complexType>
+
+</xs:schema>

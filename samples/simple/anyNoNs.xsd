@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="container">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- This allows any element that has NO namespace -->
+        <xs:any namespace="##local" processContents="lax" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+ <xs:element name="container2">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Allows elements from the targetNamespace OR no namespace -->
+        <xs:any namespace="##targetNamespace ##local" processContents="lax" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+ <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="body" type="xs:string" />
+        <xs:any namespace="##other" processContents="lax" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

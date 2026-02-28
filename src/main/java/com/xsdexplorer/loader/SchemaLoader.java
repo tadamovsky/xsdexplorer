@@ -142,6 +142,10 @@ public class SchemaLoader {
     public boolean isXsd11() {
         return xsdInfo.isXsd11();
     }
+
+    public XsdInfoLoader getXsdInfo() {
+        return xsdInfo;
+    }
     
     public StringProperty messageProperty() {
         return messages;

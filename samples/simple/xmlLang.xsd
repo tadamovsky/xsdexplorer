@@ -1,0 +1,34 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/ns"
+           xmlns:tns="http://example.com/ns"
+           elementFormDefault="qualified">
+
+  <!-- 1. Import the reserved XML namespace -->
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+  <xs:attributeGroup name="LanguageGroup">
+    <!-- 2. Reference the global xml:lang attribute -->
+    <xs:attribute ref="xml:lang"/>
+  </xs:attributeGroup>
+
+  <xs:attribute name="status" 
+                type="xs:string" 
+                default="active" 
+                id="attr_status_id">
+    <xs:annotation>
+      <xs:documentation>Globally defined status attribute.</xs:documentation>
+    </xs:annotation>
+  </xs:attribute>
+
+  <xs:element name="Description">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="tns:LanguageGroup"/>
+          <xs:attribute ref="tns:status" use="required"/>          
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
