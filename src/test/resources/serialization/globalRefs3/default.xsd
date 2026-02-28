@@ -3,22 +3,22 @@
   <xs:element name="Address">
     <xs:complexType>
       <xs:sequence>
-        <xs:element type="xs:string"/>
-        <xs:element type="xs:string"/>
-        <xs:element type="xs:string"/>
+        <xs:element name="Street" type="xs:string"/>
+        <xs:element name="City" type="xs:string"/>
+        <xs:element name="Zip" type="xs:string"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Person">
     <xs:complexType>
       <xs:sequence>
-        <xs:element type="xs:string"/>
-        <xs:element type="xs:string"/>
+        <xs:element name="FirstName" type="xs:string"/>
+        <xs:element name="LastName" type="xs:string"/>
         <xs:element ref="Address"/>
-        <xs:element maxOccurs="unbounded">
+        <xs:element name="Work" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:string"/>
+              <xs:element name="name" type="xs:string"/>
               <xs:element ref="Address"/>
             </xs:sequence>
           </xs:complexType>

@@ -126,6 +126,8 @@ public class NsItemSerializer {
             else if (!ns.isEmpty() && !elementFormQualified) {
                 xsw.writeAttribute("form", "qualified");
             }
+        } else {
+            xsw.writeAttribute("name", el.getName());
         }
         writeOccurs(parent, xsw);
         if (el.getNillable())

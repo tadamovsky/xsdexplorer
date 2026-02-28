@@ -17,7 +17,7 @@
   <xs:element name="Message">
     <xs:complexType>
       <xs:sequence>
-        <xs:element type="xs:string"/>
+        <xs:element name="body" type="xs:string"/>
         <xs:any namespace="##other" processContents="lax"/>
       </xs:sequence>
     </xs:complexType>

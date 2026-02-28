@@ -141,9 +141,5 @@ public class TestSerialization {
         runTest(xsdPath);
     }
     
-    //@Test
-    public void testNamespaceInclude() throws IOException {
-        String xsdPath = "c:\\projects\\xsdexplorerOld\\info\\samples\\Vehicle_xsd\\HardIndividualProductTruckBus_3_0_0.xsd";
-        runTest(xsdPath);
-    }        
+
 }

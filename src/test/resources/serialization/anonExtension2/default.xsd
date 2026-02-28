@@ -5,9 +5,9 @@
       <xs:complexContent>
         <xs:extension base="GlobalAddrType">
           <xs:choice>
-            <xs:element default="Accounts Payable2" type="xs:string"/>
+            <xs:element name="Department2" default="Accounts Payable2" type="xs:string"/>
             <xs:sequence>
-              <xs:element type="GlobalAddrType2"/>
+              <xs:element name="addr2" type="GlobalAddrType2"/>
             </xs:sequence>
           </xs:choice>
           <xs:attribute name="aaa" type="xs:string"/>
@@ -34,7 +34,7 @@
       <xs:complexContent>
         <xs:extension base="AttrOnlyType">
           <xs:sequence>
-            <xs:element type="xs:string"/>
+            <xs:element name="D" type="xs:string"/>
           </xs:sequence>
           <xs:attribute name="Attr2" type="xs:string"/>
         </xs:extension>
@@ -55,7 +55,7 @@
       <xs:complexContent>
         <xs:extension base="ExtOfExtOfExtOfAttrOnlyType">
           <xs:sequence>
-            <xs:element type="xs:string"/>
+            <xs:element name="D" type="xs:string"/>
           </xs:sequence>
           <xs:attribute name="Attr5" type="xs:string"/>
         </xs:extension>
@@ -74,7 +74,7 @@
   <xs:element name="HEADER">
     <xs:complexType mixed="true">
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HEAD" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:simpleContent>
               <xs:extension base="xs:string">
@@ -90,12 +90,12 @@
   <xs:element name="Root">
     <xs:complexType>
       <xs:sequence>
-        <xs:element>
+        <xs:element name="BillingAddress">
           <xs:complexType>
             <xs:complexContent>
               <xs:extension base="GlobalAddrType">
                 <xs:sequence>
-                  <xs:element default="Accounts Payable" type="xs:string"/>
+                  <xs:element name="Department" default="Accounts Payable" type="xs:string"/>
                 </xs:sequence>
               </xs:extension>
             </xs:complexContent>
@@ -109,7 +109,7 @@
       <xs:complexContent>
         <xs:extension base="GlobalAddrTypeExtType">
           <xs:sequence>
-            <xs:element type="xs:string"/>
+            <xs:element name="D" type="xs:string"/>
           </xs:sequence>
           <xs:attribute name="EEEE" type="xs:string"/>
         </xs:extension>
@@ -126,22 +126,22 @@
   <xs:element name="RootNonAnonExtComplexTypeExtComplexType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element type="GlobalAddrTypeExtType"/>
+        <xs:element name="BillingAddress" type="GlobalAddrTypeExtType"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SameAsRootNoExtensions">
     <xs:complexType>
       <xs:sequence>
-        <xs:element>
+        <xs:element name="BillingAddress">
           <xs:complexType>
             <xs:sequence>
               <xs:sequence>
-                <xs:element type="xs:string"/>
-                <xs:element type="xs:string"/>
+                <xs:element name="Country" type="xs:string"/>
+                <xs:element name="Street" type="xs:string"/>
               </xs:sequence>
               <xs:sequence>
-                <xs:element default="Accounts Payable" type="xs:string"/>
+                <xs:element name="Department" default="Accounts Payable" type="xs:string"/>
               </xs:sequence>
             </xs:sequence>
           </xs:complexType>
@@ -151,8 +151,8 @@
   </xs:element>
   <xs:complexType name="AAA">
     <xs:sequence>
-      <xs:element type="xs:string"/>
-      <xs:element type="xs:string"/>
+      <xs:element name="AA1" type="xs:string"/>
+      <xs:element name="AA2" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="CCCCC" type="xs:string"/>
   </xs:complexType>
@@ -163,7 +163,7 @@
     <xs:complexContent>
       <xs:extension base="AAA">
         <xs:sequence>
-          <xs:element type="xs:string"/>
+          <xs:element name="BB" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -179,7 +179,7 @@
     <xs:complexContent>
       <xs:extension base="CCC">
         <xs:sequence>
-          <xs:element type="xs:string"/>
+          <xs:element name="DDDD" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -196,7 +196,7 @@
     <xs:complexContent>
       <xs:extension base="emptyType">
         <xs:sequence>
-          <xs:element type="xs:string"/>
+          <xs:element name="YYYY" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -219,7 +219,7 @@
     <xs:complexContent>
       <xs:extension base="ExtOfExtOfAttrOnlyType">
         <xs:sequence>
-          <xs:element type="xs:string"/>
+          <xs:element name="C" type="xs:string"/>
         </xs:sequence>
         <xs:attribute name="Attr4" type="xs:string"/>
       </xs:extension>
@@ -232,21 +232,21 @@
   </xs:complexType>
   <xs:complexType name="GlobalAddrType">
     <xs:sequence>
-      <xs:element type="xs:string"/>
-      <xs:element type="xs:string"/>
+      <xs:element name="Country" type="xs:string"/>
+      <xs:element name="Street" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GlobalAddrType2">
     <xs:sequence>
-      <xs:element type="xs:string"/>
-      <xs:element type="xs:string"/>
+      <xs:element name="Country2" type="xs:string"/>
+      <xs:element name="Street2" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GlobalAddrTypeExtType">
     <xs:complexContent>
       <xs:extension base="BBB">
         <xs:sequence>
-          <xs:element type="xs:string"/>
+          <xs:element name="C" type="xs:string"/>
         </xs:sequence>
         <xs:attribute name="CCCCCCCC" type="xs:string"/>
       </xs:extension>

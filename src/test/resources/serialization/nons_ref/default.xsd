@@ -44,13 +44,13 @@
       <xs:annotation>
         <xs:documentation>fdsj dsj sdkhfjksdfhdskhf sdfhsdjkfhdsjkghdsjk ksdkjghdskghdskjhgsdkjghdskjghsdkjhgdsjkhgdsjkhjkjkfhjdkshfjkdshfdjsk dsjkfhdsjfhdsjkfh sdkjfhdjskfhdjshfjdshfdjsfhjdshfjdshfjdshfjdshfdjsfhjdsfhjdshfjdshfjdshfjdshfjdshfdsjjhfjdshfjdsfhdsjfhjdshfjdshfhdsjfhjds fdj hdjs sjdfhjds sdjhfjdshfjds sjdhfjds sdjfhjdsfhdjsfhjdshfjdshfjdshfjds sdjfhjsdfhjdshfjsd hfdsjhfjdshfjdshfjdshfjdshffdsh sdjfhdsjfhjdshfjdshfj sdjfhdsjhfjdshfjdshfjdshf sdjfhdjsfhdsjhfjdshf</xs:documentation>
       </xs:annotation>
-      <xs:element type="xs:anySimpleType"/>
-      <xs:element type="xs:negativeInteger"/>
-      <xs:element type="DressSizeType"/>
-      <xs:element type="MediumDressSizeType"/>
-      <xs:element type="SmallDressSizeType"/>
-      <xs:element type="SMLXSizeType"/>
-      <xs:element type="XSMLXSizeType"/>
+      <xs:element name="anyS" type="xs:anySimpleType"/>
+      <xs:element name="negInt" type="xs:negativeInteger"/>
+      <xs:element name="dressSize" type="DressSizeType"/>
+      <xs:element name="mediumDressSize" type="MediumDressSizeType"/>
+      <xs:element name="smallDressSize" type="SmallDressSizeType"/>
+      <xs:element name="smlxSize" type="SMLXSizeType"/>
+      <xs:element name="xsmlxSize" type="XSMLXSizeType"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="SmallDressSizeType">
