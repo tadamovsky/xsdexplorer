@@ -29,8 +29,10 @@ import com.xsdexplorer.loader.EntityResolverImpl;
 import com.xsdexplorer.loader.RootSelector;
 import com.xsdexplorer.loader.SchemaLoader;
 import com.xsdexplorer.loader.SchemaLoaderTask;
+import com.xsdexplorer.loader.XsdInfoLoader;
 import com.xsdexplorer.settings.AboutDialog;
 import com.xsdexplorer.settings.SettingsDialog;
+import com.xsdexplorer.tools.flatten.FlattenDialog;
 import com.xsdexplorer.tools.gensample.GenSampleRunner;
 import com.xsdexplorer.uihelpers.ZoomableScrollPane;
 
@@ -69,6 +71,7 @@ public class XsdExplorer extends Application {
     private XMLGrammarPool pool;
     private SymbolTable symbolTable; 
     private boolean isXsd11;
+    private XsdInfoLoader xsdInfo;
     
     private LogView logView;
     
@@ -180,9 +183,14 @@ public class XsdExplorer extends Application {
         
         MenuItem genSample = new MenuItem("Generate Sample XML");
         genSample.setOnAction(valuue -> new GenSampleRunner().run(model, xsdTreeView.getRootElementDecl()));
-        genSample.disableProperty().bind(schemaLoaded.not());        
+        genSample.disableProperty().bind(schemaLoaded.not());
         
-        toolsMenu.getItems().addAll(genSample, new SeparatorMenuItem(), settingsDialog);
+        MenuItem flattenSchema = new MenuItem("Flatten Schema");
+        flattenSchema.setOnAction(valuue -> new FlattenDialog(model, xsdInfo).showFlattenDialog(stage));
+        flattenSchema.disableProperty().bind(schemaLoaded.not());        
+        
+        
+        toolsMenu.getItems().addAll(genSample, flattenSchema, new SeparatorMenuItem(), settingsDialog);
 		
         MenuItem helpItem = new MenuItem("_Help");
         helpItem.setOnAction(value -> onOpenHelpFile());
@@ -381,6 +389,7 @@ public class XsdExplorer extends Application {
             pool = schemaLoader.getPool();
             symbolTable = schemaLoader.getSymbolTable();
             isXsd11 = schemaLoader.isXsd11();
+            xsdInfo = schemaLoader.getXsdInfo();
             RootSelector r = new RootSelector(model);
             XSElementDeclaration rootDecl = r.selectRoot();
             GlobalsToolbar globalsToolbar = new GlobalsToolbar(model, (xsterm -> xsdTreeView.setRootTerm(xsterm, model) ));
