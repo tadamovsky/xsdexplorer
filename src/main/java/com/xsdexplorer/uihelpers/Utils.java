@@ -3,7 +3,10 @@ package com.xsdexplorer.uihelpers;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
+import java.util.prefs.Preferences;
 import java.util.stream.Collectors;
+
+import com.xsdexplorer.XsdExplorer;
 
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
@@ -30,5 +33,9 @@ public class Utils {
         } catch (IOException e) {
             return "1.0.0";
         }        
+    }
+    
+    public static Preferences getPreferences() {
+        return Preferences.userNodeForPackage(XsdExplorer.class);
     }
 }

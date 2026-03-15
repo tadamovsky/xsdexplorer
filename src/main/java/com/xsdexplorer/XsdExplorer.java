@@ -32,8 +32,10 @@ import com.xsdexplorer.loader.SchemaLoaderTask;
 import com.xsdexplorer.loader.XsdInfoLoader;
 import com.xsdexplorer.settings.AboutDialog;
 import com.xsdexplorer.settings.SettingsDialog;
+import com.xsdexplorer.settings.VersionUpdateDialog;
 import com.xsdexplorer.tools.flatten.FlattenDialog;
 import com.xsdexplorer.tools.gensample.GenSampleRunner;
+import com.xsdexplorer.uihelpers.Utils;
 import com.xsdexplorer.uihelpers.ZoomableScrollPane;
 
 import javafx.application.Application;
@@ -63,7 +65,7 @@ public class XsdExplorer extends Application {
     private BorderPane root;
     private XsdTreeView xsdTreeView;
 
-    private Preferences prefs = Preferences.userNodeForPackage(XsdExplorer.class);
+    private Preferences prefs = Utils.getPreferences();
     private RecentItems recentItems = new RecentItems(10, prefs);
     private File lastFile;
     
@@ -128,6 +130,14 @@ public class XsdExplorer extends Application {
         stage.setTitle("Xsd Explorer");
         stage.setScene(scene);
         stage.show();
+        
+        // Check for new version in background
+        new VersionChecker().checkForNewVersionAsync(newVersion -> {
+            javafx.application.Platform.runLater(() -> {
+                new VersionUpdateDialog().showVersionUpdateDialog(newVersion);
+            });
+        });
+        
     }
 
     //accept xsd/xml/zip/directory

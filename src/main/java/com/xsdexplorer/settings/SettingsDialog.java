@@ -4,6 +4,7 @@ package com.xsdexplorer.settings;
 import java.io.File;
 
 import com.xsdexplorer.ExternalEditor;
+import com.xsdexplorer.VersionChecker;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,6 +18,7 @@ import javafx.stage.StageStyle;
 public class SettingsDialog {
 
     private final TextField textEdit = new TextField();
+    private final CheckBox checkForUpdateCheckbox = new CheckBox("Check for updates on startup");
 
     public void showSettingsDialog(Stage primaryStage) {
         Dialog<Void> d = new Dialog<>();
@@ -24,12 +26,13 @@ public class SettingsDialog {
         d.initStyle(StageStyle.UTILITY);
         d.setTitle("Settings");
         
-        VBox root = new VBox();
+        VBox root = new VBox(16);
         root.setPadding(new Insets(16));
         d.getDialogPane().setContent(root);
         
         HBox hbox = createEditorPanel(primaryStage);
-        root.getChildren().add(hbox);
+        checkForUpdateCheckbox.setSelected(VersionChecker.isStartupCheckEnabled());
+        root.getChildren().addAll(hbox, checkForUpdateCheckbox);
         
         var okBtnType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         var closeBtnType = new ButtonType("Close", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -37,6 +40,7 @@ public class SettingsDialog {
         d.getDialogPane().getButtonTypes().addAll(okBtnType, closeBtnType);
         d.setResultConverter(b -> {
             if (b == okBtnType) {
+                VersionChecker.setStartupCheckEnabled(checkForUpdateCheckbox.isSelected());
                 ExternalEditor.setCurrentEditor(textEdit.getText());
             }
             return null;
