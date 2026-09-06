@@ -1,12 +1,18 @@
 package com.xsdexplorer;
 
+import java.util.Collection;
+import java.util.IdentityHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import org.apache.xerces.xs.XSConstants;
 import org.apache.xerces.xs.XSElementDeclaration;
 import org.apache.xerces.xs.XSModel;
+import org.apache.xerces.xs.XSModelGroup;
+import org.apache.xerces.xs.XSModelGroupDefinition;
 import org.apache.xerces.xs.XSObject;
 
 import com.xsdexplorer.uihelpers.Utils;
@@ -42,6 +48,8 @@ public class XsdTreeView extends Pane  {
 	private Consumer<Object> onNodeFocused;
 	private Consumer<TreeNodeControl> onNodeExpanded;
 	private LinkedList<XSObject> navQueue = new LinkedList<>();
+	//lazily-built identity map: a referenced global group's shared XSModelGroup -> its definition
+	private Map<XSModelGroup, XSModelGroupDefinition> modelGroupDefs;
 	
     public static class Options {
 		BooleanProperty showAttributes = new SimpleBooleanProperty(true);
@@ -105,6 +113,7 @@ public class XsdTreeView extends Pane  {
 	public void setRootTerm(XSObject term, XSModel model) {
 	    if (this.model != model) {
 	        navQueue.clear();
+	        modelGroupDefs = null;
 	        this.model = model;
 	    }
 	    else if (rootNode != null && term != null) {
@@ -327,6 +336,18 @@ public class XsdTreeView extends Pane  {
 
     public XSModel getModel() {
         return model;
+    }
+
+    //returns the group definition for a referenced global group's XSModelGroup, or null for an anonymous local compositor
+    public XSModelGroupDefinition getModelGroupDefinition(XSModelGroup g) {
+        if (modelGroupDefs == null) {
+            modelGroupDefs = new IdentityHashMap<>();
+            Collection<XSModelGroupDefinition> defs = SchemaUtil.castList(model.getComponents(XSConstants.MODEL_GROUP_DEFINITION).values());
+            for (XSModelGroupDefinition mgd : defs) {
+                modelGroupDefs.put(mgd.getModelGroup(), mgd);
+            }
+        }
+        return modelGroupDefs.get(g);
     }
     
     public void onNodeFocused(Object node) {

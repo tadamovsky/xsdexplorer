@@ -143,6 +143,20 @@ public class XsdTreeNode extends TreeNodeControl {
 	public XSModelGroup group() {
 		return (XSModelGroup) term;
 	}
+
+	//the definition of a referenced global group, or null for an anonymous local compositor
+	public XSModelGroupDefinition groupDefinition() {
+		return isGroup() ? getParentLayout().getModelGroupDefinition(group()) : null;
+	}
+
+	public boolean isNamedGroup() {
+		return groupDefinition() != null;
+	}
+
+	public String groupName() {
+		XSModelGroupDefinition d = groupDefinition();
+		return d != null ? d.getName() : null;
+	}
 	
 	public XSElementDeclaration element() {
 		return (XSElementDeclaration) term;
@@ -237,7 +251,8 @@ public class XsdTreeNode extends TreeNodeControl {
     }
 
     void expand(boolean force) {
-	    if ((isGroup() || force) && label.getOnClickControl() != null) { 
+	    //named global groups are collapse boundaries: never auto-expanded (only via explicit force or user click)
+	    if (((isGroup() && !isNamedGroup()) || force) && label.getOnClickControl() != null) {
 	        toggleExpand();
             /*
             if (parentLayout.getNodeCount() < 300) {
@@ -423,14 +438,22 @@ public class XsdTreeNode extends TreeNodeControl {
 	private void addAnnotation() {
 		if (!options().showAnnotations.get())
 			return;
-		XSAnnotation xsAnnot = isElement() ?  element().getAnnotation() : 
-		        isGroup() ? group().getAnnotation() : (isAny() ? any().getAnnotation() : getTypeAnnotation());
+		XSAnnotation xsAnnot = isElement() ?  element().getAnnotation() :
+		        isGroup() ? groupAnnotation() : (isAny() ? any().getAnnotation() : getTypeAnnotation());
 		String text;
 		if (xsAnnot != null && (text = AnnotationExtractor.extract(xsAnnot.getAnnotationString()))!= null) {
 			control.addAnnot(text);
 		}
 	}
 	
+	//for a named group the annotation lives on the definition; fall back to the compositor's
+	private XSAnnotation groupAnnotation() {
+	    XSModelGroupDefinition d = groupDefinition();
+	    if (d != null && d.getAnnotation() != null)
+	        return d.getAnnotation();
+	    return group().getAnnotation();
+	}
+
 	private XSAnnotation getTypeAnnotation() {
 	    if (term instanceof XSComplexTypeDecl t) {
 	        XSObjectList annotations = t.getAnnotations();

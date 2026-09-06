@@ -147,7 +147,7 @@
 				<artifactId>javafx-maven-plugin</artifactId>
 				<version>0.0.8</version>
 				<configuration>
-					<mainClass>org.openjfx.App</mainClass>
+					<mainClass>xsdexplorer/com.xsdexplorer.XsdExplorer</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

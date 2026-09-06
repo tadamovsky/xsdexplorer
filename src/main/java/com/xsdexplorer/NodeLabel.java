@@ -50,7 +50,8 @@ public class NodeLabel extends Pane {
     
     private boolean addGlobalRefArrow; //add arrow sign for global ref elements
     private boolean isSimpleContent;
-    private XsdTreeNode xsdTreeNode; 
+    private boolean leadingGroupIcon; //reserve room before the text for a named-group compositor glyph
+    private XsdTreeNode xsdTreeNode;
     
     private static Font font = null;
     private static class SvgSize {
@@ -115,7 +116,15 @@ public class NodeLabel extends Pane {
             n.initNode(SVG_ELEMENT, minoccurs, repeating, hasChildren);
             return n;
         case MODEL_GROUP:
-            n =  new NodeLabel(node);
+            //named global group refs show the group name; anonymous local compositors stay icon-only
+            String groupName = node.groupName();
+            if (groupName != null) {
+                n = new NodeLabel(groupName, node);
+                n.leadingGroupIcon = true;
+            }
+            else {
+                n = new NodeLabel(node);
+            }
             n.initNode(SVG_MODEL_GROUP, minoccurs, repeating, hasChildren);
             n.addGroupNodeInnerSvg(((XSModelGroup) term).getCompositor());
             return n;
@@ -173,23 +182,31 @@ public class NodeLabel extends Pane {
         else {
             svg.setContent(SVG_ALL_INSIDE);
         }
-        svg.setScaleX(svgAspectX);
-        svg.setScaleY(svgAspectY);
+        //the inner compositor glyph is authored in the hexagon's own coordinate frame; scale it by the
+        //icon-only aspect (svgSize vs the hexagon's natural size) so it renders the same regardless of
+        //whether the node also carries name text (for text nodes svgAspectX is stretched to the text width).
+        SVGPath hex = new SVGPath();
+        hex.setContent(SVG_MODEL_GROUP);
+        double iconAspectX = svgSize.width / hex.prefWidth(-1);
+        double iconAspectY = svgSize.height / hex.prefHeight(-1);
+        svg.setScaleX(iconAspectX);
+        svg.setScaleY(iconAspectY);
         svg.setStroke(Color.BLACK);
         svg.setFill(Color.BLACK);
         svg.setStrokeWidth(1);
-        
-        double w = svg.prefWidth(-1)*svgAspectX;
-        double h = svg.prefHeight(w)*svgAspectY;
+
+        double w = svg.prefWidth(-1)*iconAspectX;
+        double h = svg.prefHeight(w)*iconAspectY;
         //Region r = svgInRegion(svg, w, h);
         //r.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
         //getChildren().add(r);
         //r.relocate((SVG_W - w)/2, SVG_H/2- h/2);
+        //centered within the leading icon area [0, svgSize.width]; for named groups the text starts after it
         Group g = new Group(svg);
         getChildren().add(g);
         g.relocate((svgSize.width - w)/2, svgSize.height/2- h/2);
-        
-        
+
+
     }
     
     private void initNode(String svg, int minoccurs, boolean repeating, boolean hasChildren) {
@@ -197,9 +214,11 @@ public class NodeLabel extends Pane {
         svgPath.setContent(svg);
         double w, h, plusMove;
         if (text != null) {
-            w = text.prefWidth(-1) + 20;
+            //named groups reserve a leading icon area (svgSize.width) before the text for the compositor glyph
+            double textX = leadingGroupIcon ? svgSize.width : 10;
+            w = textX + text.prefWidth(-1) + 10;
             h = text.prefHeight(-1) + HEIGHT_ADD;
-            text.relocate(10, HEIGHT_ADD/2);
+            text.relocate(textX, HEIGHT_ADD/2);
             plusMove = PLUS_SIZE / 2;
         }
         else {

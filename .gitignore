@@ -30,3 +30,7 @@ test-output/
 /java-runtime
 *.exe
 /.settings
+
+# Vendored Xerces XML-Schema-1.1 source (reference only), keep prepareLibs.bat
+/createLibs/*
+!/createLibs/prepareLibs.bat
