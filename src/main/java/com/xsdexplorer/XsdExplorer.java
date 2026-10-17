@@ -186,7 +186,15 @@ public class XsdExplorer extends Application {
 		fileMenu.getItems().addAll(openFileItem, openDirItem, new SeparatorMenuItem(), exitItem);
 		recentItems.addObserver(val -> addMRecentFiles(fileMenu, 3));
 		addMRecentFiles(fileMenu, 3);
-		viewMenu.getItems().addAll(subMenu);
+		MenuItem expandFullyItem = new MenuItem("Expand fully");
+		expandFullyItem.disableProperty().bind(xsdTreeView.focusedTreeNodeProperty().isNull());
+		expandFullyItem.setOnAction(value -> {
+		    XsdTreeNode node = xsdTreeView.getFocusedTreeNode();
+		    if (node != null) {
+		        node.expandSubtree();
+		    }
+		});
+		viewMenu.getItems().addAll(subMenu, expandFullyItem);
 
         MenuItem settingsDialog = new MenuItem("Settings");
         settingsDialog.setOnAction(value -> new SettingsDialog().showSettingsDialog(stage));

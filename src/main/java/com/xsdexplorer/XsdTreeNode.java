@@ -3,9 +3,12 @@ package com.xsdexplorer;
 import static org.apache.xerces.xs.XSConstants.MODEL_GROUP;
 import static org.apache.xerces.xs.XSConstants.WILDCARD;
 
+import java.util.ArrayDeque;
 import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,6 +22,8 @@ import com.xsdexplorer.XsdTreeView.Options;
 
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -28,36 +33,36 @@ import javafx.scene.text.Text;
 
 
 public class XsdTreeNode extends TreeNodeControl {
-	static final double ANNOTATION_WRAP = 140;
+    static final double ANNOTATION_WRAP = 140;
 
-	private XSObject term;
+    private XSObject term;
     private NodeControl control = new NodeControl();
-	private XsdTreeView parentLayout;
-	
-	private boolean isOpen = false;
+    private XsdTreeView parentLayout;
+    
+    private boolean isOpen = false;
     private int minOccurs = 1;
-	private int maxOccurs = 1;
-	private XsdTreeNode parentTreeNode;
-	
-	private XSParticle particle; //used for recursion detection
-	
+    private int maxOccurs = 1;
+    private XsdTreeNode parentTreeNode;
+    
+    private XSParticle particle; //used for recursion detection
+    
     private NodeLabel label;
-	
-	//not part of the control but of the parent tree view
-	private ConnEdges connEdges; 
-	private TypeRectangle typeRectangle;
-	private SubstEdges substEdges;
-	private List<XsdTreeNode> substGroup;
-	
+    
+    //not part of the control but of the parent tree view
+    private ConnEdges connEdges; 
+    private TypeRectangle typeRectangle;
+    private SubstEdges substEdges;
+    private List<XsdTreeNode> substGroup;
+    
     public XsdTreeNode(XSParticle p, XsdTreeNode parentTreeNode) {
-		this.minOccurs = p.getMinOccurs();
-		this.maxOccurs = p.getMaxOccurs();
-		this.parentLayout = parentTreeNode.parentLayout;
-		this.parentTreeNode = parentTreeNode;
-		this.particle = p;
-		init(p.getTerm());
-	}
-	
+        this.minOccurs = p.getMinOccurs();
+        this.maxOccurs = p.getMaxOccurs();
+        this.parentLayout = parentTreeNode.parentLayout;
+        this.parentTreeNode = parentTreeNode;
+        this.particle = p;
+        init(p.getTerm());
+    }
+    
     //used for substitution group element only
     private XsdTreeNode(XSObject term, XsdTreeNode parent) {
         this.minOccurs = parent.minOccurs;
@@ -66,137 +71,142 @@ public class XsdTreeNode extends TreeNodeControl {
         this.parentTreeNode = parent;
         init(term);
     }
-	
-	//used for root element only
-	public XsdTreeNode(XSObject term, XsdTreeView parentLayout) {
-		this.parentLayout = parentLayout;
-		init(term);
-	}
-	
-	private void init(XSObject term) {
-		this.term = term;
-		label = NodeLabel.createNodeLabel(this);
+    
+    //used for root element only
+    public XsdTreeNode(XSObject term, XsdTreeView parentLayout) {
+        this.parentLayout = parentLayout;
+        init(term);
+    }
+    
+    private void init(XSObject term) {
+        this.term = term;
+        label = NodeLabel.createNodeLabel(this);
         if (label.getOnClickControl() != null) {
             label.getOnClickControl().setOnMouseClicked(this::onPlusClicked);
         }
         label.setOnMouseClicked(this::onMouseClicked);
+        label.setOnKeyPressed(this::onKeyPressed);
         label.focusedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
             if (newValue)
                 onFocused();
         });   
-    	label.setOnContextMenuRequested((e) -> getParentLayout().getContextMenu(this).show(label, e.getScreenX(), e.getScreenY()));
-		control.getChildren().add(label);
-		addOccursLabel();
-		addAnnotation();
-		//setBackground(new Background(new BackgroundFill(Color.CORNSILK, new CornerRadii(0), Insets.EMPTY)));
-		parentLayout.addNode(this);
-		
-		substGroup = getSubstitutionGroup().stream().map(e -> new XsdTreeNode(e, this)).sorted((n1, n2) -> n1.getTerm().getName().compareTo(n2.getTerm().getName())).toList();
-		substEdges = SubstEdges.createIfNeeded(this);
-		
-		if (isLoop()) {
-		    //start of recursive seq., add single child "..." and mark open
-		    isOpen = true;
-		    childNodes = List.of(new RecursionNode(particle.toString(), getParentLayout()));
+        label.setOnContextMenuRequested((e) -> getParentLayout().getContextMenu(this).show(label, e.getScreenX(), e.getScreenY()));
+        control.getChildren().add(label);
+        addOccursLabel();
+        addAnnotation();
+        //setBackground(new Background(new BackgroundFill(Color.CORNSILK, new CornerRadii(0), Insets.EMPTY)));
+        parentLayout.addNode(this);
+        
+        substGroup = getSubstitutionGroup().stream().map(e -> new XsdTreeNode(e, this)).sorted((n1, n2) -> n1.getTerm().getName().compareTo(n2.getTerm().getName())).toList();
+        substEdges = SubstEdges.createIfNeeded(this);
+        
+        if (isLoop()) {
+            //start of recursive seq., add single child "..." and mark open
+            isOpen = true;
+            childNodes = List.of(new RecursionNode(particle.toString(), getParentLayout()));
             connEdges = new ConnEdges(this);
         }
-	}
+    }
 
     public List<TreeNodeControl> getChildrenForLayout() {
         return childNodes.stream().flatMap(e -> e instanceof XsdTreeNode xn ? Stream.concat(Stream.of(e), xn.getSubstGroup().stream()) : Stream.of(e)).toList();
     }
-	
-	void onOpenExternalEditor() {
-	    XsdTreeNode node = this;
-	    while (!node.isGlobal()) {
-	        node = node.parentTreeNode;
-	    }
-	    ExternalEditor extEditor = new ExternalEditor();
-	    extEditor.openInExternalEditor(getParentLayout().getModel(), node.term);
-	}
-	
-	public boolean isGroup() {
-		return term.getType() == MODEL_GROUP;
-	}
-	
-	public boolean isAny() {
-		return term.getType() == WILDCARD;
-	}
-	
-	public boolean isElement() {
-		return term.getType() == XSConstants.ELEMENT_DECLARATION;
-	}
-	
-	public boolean isGlobalRef() {
-	    return parentTreeNode != null && isElement() && element().getScope() == XSElementDecl.SCOPE_GLOBAL;
-	}
-	
-	public boolean isGlobal() {
-	    return parentTreeNode == null || isGlobalRef();
-	}
-	
+    
+    void onOpenExternalEditor() {
+        XsdTreeNode node = this;
+        while (!node.isGlobal()) {
+            node = node.parentTreeNode;
+        }
+        ExternalEditor extEditor = new ExternalEditor();
+        extEditor.openInExternalEditor(getParentLayout().getModel(), node.term);
+    }
+    
+    public boolean isGroup() {
+        return term.getType() == MODEL_GROUP;
+    }
+    
+    public boolean isAny() {
+        return term.getType() == WILDCARD;
+    }
+    
+    public boolean isElement() {
+        return term.getType() == XSConstants.ELEMENT_DECLARATION;
+    }
+    
+    public boolean isGlobalRef() {
+        return parentTreeNode != null && isElement() && element().getScope() == XSElementDecl.SCOPE_GLOBAL;
+    }
+    
+    public boolean isGlobal() {
+        return parentTreeNode == null || isGlobalRef();
+    }
+    
     public boolean isType() {
         return term.getType() == XSConstants.TYPE_DEFINITION;
     }
-	
-	
-	public XSModelGroup group() {
-		return (XSModelGroup) term;
-	}
+    
+    
+    public XSModelGroup group() {
+        return (XSModelGroup) term;
+    }
 
-	//the definition of a referenced global group, or null for an anonymous local compositor
-	public XSModelGroupDefinition groupDefinition() {
-		return isGroup() ? getParentLayout().getModelGroupDefinition(group()) : null;
-	}
+    //the definition of a referenced global group, or null for an anonymous local compositor
+    public XSModelGroupDefinition groupDefinition() {
+        return isGroup() ? getParentLayout().getModelGroupDefinition(group()) : null;
+    }
 
-	public boolean isNamedGroup() {
-		return groupDefinition() != null;
-	}
+    public boolean isNamedGroup() {
+        return groupDefinition() != null;
+    }
 
-	public String groupName() {
-		XSModelGroupDefinition d = groupDefinition();
-		return d != null ? d.getName() : null;
-	}
-	
-	public XSElementDeclaration element() {
-		return (XSElementDeclaration) term;
-	}
-	
-	public XSWildcard any() {
-		return (XSWildcard) term;
-	}
-	
+    public String groupName() {
+        XSModelGroupDefinition d = groupDefinition();
+        return d != null ? d.getName() : null;
+    }
+    
+    public XSElementDeclaration element() {
+        return (XSElementDeclaration) term;
+    }
+    
+    public XSWildcard any() {
+        return (XSWildcard) term;
+    }
+    
     public XSTypeDefinition type() {
         return (XSTypeDefinition) term;
     }
 
-	public String anyOrGroupCompositor() {
-		return isAny() ? "any" : groupCompositor();
-	}
-	
-	public String groupCompositor() {
-	    return SchemaUtil.groupCompositor(group());
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<XSParticle> groupParticles() {
-		return group().getParticles();
-	}
-	
+    public String anyOrGroupCompositor() {
+        return isAny() ? "any" : groupCompositor();
+    }
+    
+    public String groupCompositor() {
+        return SchemaUtil.groupCompositor(group());
+    }
+    
     @SuppressWarnings("unchecked")
+    public List<XSParticle> groupParticles() {
+        return group().getParticles();
+    }
+    
     private List<XSElementDeclaration> getSubstitutionGroup() {
         if (isElement()) {
-            try {
-                List<XSElementDeclaration> ret = getParentLayout().getModel().getSubstitutionGroup((XSElementDeclaration) term);
-                return ret == null ? Collections.emptyList() : ret;
-            } catch (Exception e) {
-                //happens in case of some xsd validation error...
-                return Collections.emptyList();
-            }
+            return getSubstitutionGroup((XSElementDeclaration) term);
         }
         return Collections.emptyList();
     }
-	
+    
+    @SuppressWarnings("unchecked")
+    private List<XSElementDeclaration> getSubstitutionGroup(XSElementDeclaration el) {
+        try {
+            List<XSElementDeclaration> ret = getParentLayout().getModel().getSubstitutionGroup(el);
+            return ret == null ? Collections.emptyList() : ret;
+        } catch (Exception e) {
+            //happens in case of some xsd validation error...
+            return Collections.emptyList();
+        }
+    }
+    
     public List<XsdTreeNode> getSubstGroup() {
         return substGroup;
     }
@@ -207,53 +217,157 @@ public class XsdTreeNode extends TreeNodeControl {
             event.consume();
         }
     }
+
+    private void onKeyPressed(KeyEvent event) {
+        if (isStarKey(event)) {
+            event.consume();
+            expandSubtree();
+        }
+    }
+
+    private static boolean isStarKey(KeyEvent event) {
+        return event.getCode() == KeyCode.MULTIPLY
+                || event.getCode() == KeyCode.STAR
+                || "*".equals(event.getText());
+    }
     
     private void onFocused() {
         getParentLayout().onNodeFocused(this);
     }    
     
-	private void onPlusClicked(MouseEvent event) {
-	    if (event.getButton() == MouseButton.PRIMARY) {
+    private void onPlusClicked(MouseEvent event) {
+        if (event.getButton() == MouseButton.PRIMARY) {
             event.consume();
-	        toggleExpand();
-	    }
-	}
-	
-	public void toggleExpand() {
-        label.toggleOpenControl();
-		if (isOpen) {
-			isOpen = false;
-			hideSubtree(this);
-			return;
-		}
-		isOpen = true;
-		if (childNodes.size() > 0) {
-			showSubtree(this);
-		}
-		else {
-    		populateChildren();
-    		connEdges = new ConnEdges(this);
-    		//fireNodeOpenEvent();
-    		
-    		autoexpand();
-		}
+            toggleExpand();
+        }
+    }
+    
+    public void toggleExpand() {
+        if (isOpen) {
+            collapse();
+            return;
+        }
+        open(true);
+    }
+
+    public void expandSubtree() {
+        ExpandSubtreeResult result = expandSubtreeToLimit(XsdTreeView.MAX_DIAGRAM_NODES);
+        XsdExplorer.addLogViewMessage(LogView.Kind.INFO, result.message());
+    }
+
+    ExpandSubtreeResult expandSubtreeToLimit(int limit) {
+        int nodeCount = getParentLayout().getNodeCount();
+        boolean limitReached = false;
+        boolean openedAny = false;
+        ArrayDeque<XsdTreeNode> queue = new ArrayDeque<>();
+        Set<XsdTreeNode> queued = Collections.newSetFromMap(new IdentityHashMap<>());
+        queue.add(this);
+        queued.add(this);
+        while (!queue.isEmpty()) {
+            XsdTreeNode node = queue.removeFirst();
+            if (node.needsPopulate() && nodeCount >= limit) {
+                limitReached = true;
+                continue;
+            }
+            int before = getParentLayout().getNodeCount();
+            if (node.open(false)) {
+                openedAny = true;
+            }
+            nodeCount += getParentLayout().getNodeCount() - before;
+            for (XsdTreeNode next : node.expandableDescendants()) {
+                if (queued.add(next)) {
+                    queue.add(next);
+                }
+            }
+        }
         getParentLayout().onNodeExpanded(this);
-	}
-	
-	private void autoexpand() {
-	    if (hasSingleChild() ||
-	            //single non-attr node
-	            childNodes.stream().filter(e -> e instanceof XsdTreeNode).skip(1).findAny().isEmpty()) {
+        return new ExpandSubtreeResult(nodeCount, limitReached, !openedAny);
+    }
+
+    static final class ExpandSubtreeResult {
+        final int nodeCount;
+        final boolean limitReached;
+        final boolean alreadyFullyExpanded;
+
+        ExpandSubtreeResult(int nodeCount, boolean limitReached, boolean alreadyFullyExpanded) {
+            this.nodeCount = nodeCount;
+            this.limitReached = limitReached;
+            this.alreadyFullyExpanded = alreadyFullyExpanded;
+        }
+
+        String message() {
+            if (limitReached) {
+                return String.format("Diagram contains %d nodes. Expansion stopped after reaching the %,d-node threshold; some branches remain collapsed.",
+                        nodeCount, XsdTreeView.MAX_DIAGRAM_NODES);
+            }
+            if (alreadyFullyExpanded) {
+                return String.format("Diagram contains %d nodes. Subtree already fully expanded.", nodeCount);
+            }
+            return String.format("Diagram contains %d nodes. Subtree fully expanded.", nodeCount);
+        }
+    }
+
+    private boolean needsPopulate() {
+        return !isOpen && childNodes.isEmpty() && hasXsdChildren();
+    }
+
+    private List<XsdTreeNode> expandableDescendants() {
+        List<XsdTreeNode> next = new LinkedList<>();
+        for (XsdTreeNode s : getSubstGroup()) {
+            next.add(s);
+        }
+        for (TreeNodeControl child : childNodes) {
+            if (child instanceof XsdTreeNode xn) {
+                next.add(xn);
+            }
+        }
+        return next;
+    }
+
+    private boolean open(boolean autoexpand) {
+        if (isOpen) {
+            return false;
+        }
+        if (!hasXsdChildren() && childNodes.isEmpty()) {
+            return false;
+        }
+        label.toggleOpenControl();
+        isOpen = true;
+        if (!childNodes.isEmpty()) {
+            showSubtree(this);
+        } else {
+            populateChildren();
+            if (!childNodes.isEmpty()) {
+                connEdges = new ConnEdges(this);
+            }
+            if (autoexpand) {
+                autoexpand();
+            }
+        }
+        getParentLayout().onNodeExpanded(this);
+        return true;
+    }
+
+    private void collapse() {
+        label.toggleOpenControl();
+        isOpen = false;
+        hideSubtree(this);
+    }
+    
+    private void autoexpand() {
+        if (hasSingleChild() ||
+                //single non-attr node
+                childNodes.stream().filter(e -> e instanceof XsdTreeNode).skip(1).findAny().isEmpty()) {
             for (TreeNodeControl c : childNodes) {
                 c.expand(false);
             }
-	    }
+        }
     }
 
     void expand(boolean force) {
-	    //named global groups are collapse boundaries: never auto-expanded (only via explicit force or user click)
-	    if (((isGroup() && !isNamedGroup()) || force) && label.getOnClickControl() != null) {
-	        toggleExpand();
+        //named global groups are collapse boundaries: never auto-expanded (only via explicit force or user click)
+        if (((isGroup() && !isNamedGroup()) || force) && label.getOnClickControl() != null) {
+            toggleExpand();
             /*
             if (parentLayout.getNodeCount() < 300) {
                 Platform.runLater(() -> {            
@@ -262,39 +376,39 @@ public class XsdTreeNode extends TreeNodeControl {
                 });
             }
             */
-	    }
-	}
-	
-	public Pane getTypeRectange() {
-		return typeRectangle;
-	}
-	
-	boolean allChildrenOptional() {
-		for (TreeNodeControl child : childNodes) {
-			if (!child.isOptional())
-				return false;
-		}
-		return true;
-	}
+        }
+    }
+    
+    public Pane getTypeRectange() {
+        return typeRectangle;
+    }
+    
+    boolean allChildrenOptional() {
+        for (TreeNodeControl child : childNodes) {
+            if (!child.isOptional())
+                return false;
+        }
+        return true;
+    }
 
-	private static void hideSubtree(TreeNodeControl node) {
-		for (TreeNodeControl child : node.getChildrenForLayout()) {
-			child.setVisible(false);
-			hideSubtree(child);
-		}
-	}
-	
-	private static void showSubtree(TreeNodeControl node) {
-		for (TreeNodeControl child : node.getChildrenForLayout()) {
-			child.setVisible(true);
-			if (child.isOpen()) {
-				showSubtree(child);
-			}
-		}
-	}
-	
-	private boolean isLoop() {
-	    if (!isGroup())
+    private static void hideSubtree(TreeNodeControl node) {
+        for (TreeNodeControl child : node.getChildrenForLayout()) {
+            child.setVisible(false);
+            hideSubtree(child);
+        }
+    }
+    
+    private static void showSubtree(TreeNodeControl node) {
+        for (TreeNodeControl child : node.getChildrenForLayout()) {
+            child.setVisible(true);
+            if (child.isOpen()) {
+                showSubtree(child);
+            }
+        }
+    }
+    
+    private boolean isLoop() {
+        if (!isGroup())
             return false;
         XsdTreeNode node = parentTreeNode;
         while (node != null) {
@@ -303,73 +417,71 @@ public class XsdTreeNode extends TreeNodeControl {
             node = node.parentTreeNode;
         }
         return false;
-	}
-	
-	private void populateChildren() {
-       if (isGroup()) {
+    }
+    
+    private void populateChildren() {
+        if (isGroup()) {
             childNodes = groupParticles().stream().map(p -> (TreeNodeControl) new XsdTreeNode(p, this)).toList();
+            return;
         }
-        else if (!isAny()) {
-            XSComplexTypeDecl t =  getComplexType();
-            if (t == null)
-                return;
-            int typeRectIndex = getParentLayout().getChildren().size();
-            String typeName = getTypeName();
-            boolean requestSplit = typeName != null && typeName.endsWith("(ext)"); 
-            ComplexTypeExtractor ct = new ComplexTypeExtractor(requestSplit);
-            childNodes = ct.extractComplexTypeChildren(t, this, options());
-            
-            if (typeName != null) {
-                int typeCount;
-                if (requestSplit) {
-                    typeCount = ct.getBaseTypeSize();
-                }
-                else {
-                    Preconditions.checkState(ct.getBaseTypeSize() == 0);
-                    typeCount =  childNodes.size();
-                }
-                if (typeCount > 0) { //don't show empty type rect, e.g. empty base?
-                    typeRectangle = new TypeRectangle(typeName, typeCount - 1);
-                    //must be added before children of this, as they are layered over type rect
-                    getParentLayout().getChildren().add(typeRectIndex, typeRectangle);
-                    typeRectangle.visibleProperty().bind(firstChild().visibleProperty());
-                }
+        if (isAny()) {
+            return;
+        }
+        XSComplexTypeDecl t = getComplexType();
+        if (t == null) {
+            return;
+        }
+        int typeRectIndex = getParentLayout().getChildren().size();
+        String typeName = getTypeName();
+        boolean requestSplit = typeName != null && typeName.endsWith("(ext)");
+        ComplexTypeExtractor extractor = new ComplexTypeExtractor(requestSplit);
+        childNodes = extractor.extractComplexTypeChildren(t, this, options());
+        if (typeName != null && !childNodes.isEmpty()) {
+            int typeCount = requestSplit ? extractor.getBaseTypeSize() : childNodes.size();
+            if (!requestSplit) {
+                Preconditions.checkState(extractor.getBaseTypeSize() == 0);
+            }
+            if (typeCount > 0) { //don't show empty type rect, e.g. empty base?
+                typeRectangle = new TypeRectangle(typeName, typeCount - 1);
+                //must be added before children of this, as they are layered over type rect
+                getParentLayout().getChildren().add(typeRectIndex, typeRectangle);
+                typeRectangle.visibleProperty().bind(firstChild().visibleProperty());
             }
         }
-	}
-	
+    }
+    
     private List<XSAttributeUse> getAttributes() {
-		XSComplexTypeDecl t =  options().showAttributes.get() ? getComplexType() : null;
-		return t != null ? castAttrList(t.getAttributeUses()) : Collections.emptyList();
-	}
-	
-	@SuppressWarnings("unchecked")
+        XSComplexTypeDecl t =  options().showAttributes.get() ? getComplexType() : null;
+        return t != null ? castAttrList(t.getAttributeUses()) : Collections.emptyList();
+    }
+    
+    @SuppressWarnings("unchecked")
     private static List<XSAttributeUse> castAttrList(XSObjectList l) {
-	    return l;
-	}
-	
-	private String getTypeName() {
-	    if (!options().showTypes.get())
-	        return null;
-	    XSComplexTypeDecl t = getComplexType();
-	    if (t == null)
-	        return null;
-		if (t.getContentType() >= XSComplexTypeDefinition.CONTENTTYPE_ELEMENT || !t.getAttributeUses().isEmpty()) {
-		    if (!t.getAnonymous() && !isType())
+        return l;
+    }
+    
+    private String getTypeName() {
+        if (!options().showTypes.get())
+            return null;
+        XSComplexTypeDecl t = getComplexType();
+        if (t == null)
+            return null;
+        if (t.getContentType() >= XSComplexTypeDefinition.CONTENTTYPE_ELEMENT || !t.getAttributeUses().isEmpty()) {
+            if (!t.getAnonymous() && !isType())
                 return t.getName();
-		    if (t.getBaseType() instanceof XSComplexTypeDecl && t.getDerivationMethod() == XSConstants.DERIVATION_EXTENSION) 
-		        return t.getBaseType().getName()+" (ext)";
-		}
-		return null;
-	}
-	
-	boolean hasXsdChildren() {
-	    if (isLoop())
-	        return false;
-	    if (!getAttributes().isEmpty())
-	        return true;
-	    if (isGroup()) {
-	        return !groupParticles().isEmpty();
+            if (t.getBaseType() instanceof XSComplexTypeDecl && t.getDerivationMethod() == XSConstants.DERIVATION_EXTENSION) 
+                return t.getBaseType().getName()+" (ext)";
+        }
+        return null;
+    }
+    
+    boolean hasXsdChildren() {
+        if (isLoop())
+            return false;
+        if (!getAttributes().isEmpty())
+            return true;
+        if (isGroup()) {
+            return !groupParticles().isEmpty();
         }
         else if (isAny()) {
             return false;
@@ -386,10 +498,10 @@ public class XsdTreeNode extends TreeNodeControl {
             }
             return false;
         }
-	}
-	
-	
-	public boolean isSimpleContent() {
+    }
+    
+    
+    public boolean isSimpleContent() {
         if (isElement()) {
             XSComplexTypeDecl ct = getComplexType();
             if (ct == null)
@@ -397,157 +509,157 @@ public class XsdTreeNode extends TreeNodeControl {
             return ct.getContentType() <= XSComplexTypeDefinition.CONTENTTYPE_SIMPLE;
         }
         return false;
-	}
-	
-	public boolean hasComplexContent(XSTypeDefinition td) {
-		return td instanceof XSComplexTypeDecl t && t.getContentType() >= XSComplexTypeDefinition.CONTENTTYPE_ELEMENT;
-	}
-	
-	private XSComplexTypeDecl getComplexType() {
-		if (isElement()) {
-			XSTypeDefinition td = element().getTypeDefinition();
-			if (td instanceof XSComplexTypeDecl t) {
-				return t;
-			}
-		}
-		else if (isType() && term instanceof XSComplexTypeDecl t) {
-		    return t;
-		}
-		return null;
-	}
-	
-	private XSParticle getComplexContent(XSTypeDefinition td) {
-		if (td instanceof XSComplexTypeDecl t) {
-			return t.getParticle();
-		}
-		return null;
-	}
-	
-	public boolean isRepeating() {
-	    return maxOccurs > 1 || maxOccurs == -1;
-	}
-	
-	private void addOccursLabel() {
-		if (maxOccurs == 0 || maxOccurs == 1) {
-			return;
-		}
-		Text occLabel = new Text(String.format("%d..%s", minOccurs, maxOccurs > 0 ? String.valueOf(maxOccurs): "\u221E"));
-		control.addOccursLabel(occLabel);
-	}
-	
-	private void addAnnotation() {
-		if (!options().showAnnotations.get())
-			return;
-		XSAnnotation xsAnnot = isElement() ?  element().getAnnotation() :
-		        isGroup() ? groupAnnotation() : (isAny() ? any().getAnnotation() : getTypeAnnotation());
-		String text;
-		if (xsAnnot != null && (text = AnnotationExtractor.extract(xsAnnot.getAnnotationString()))!= null) {
-			control.addAnnot(text);
-		}
-	}
-	
-	//for a named group the annotation lives on the definition; fall back to the compositor's
-	private XSAnnotation groupAnnotation() {
-	    XSModelGroupDefinition d = groupDefinition();
-	    if (d != null && d.getAnnotation() != null)
-	        return d.getAnnotation();
-	    return group().getAnnotation();
-	}
+    }
+    
+    public boolean hasComplexContent(XSTypeDefinition td) {
+        return td instanceof XSComplexTypeDecl t && t.getContentType() >= XSComplexTypeDefinition.CONTENTTYPE_ELEMENT;
+    }
+    
+    private XSComplexTypeDecl getComplexType() {
+        if (isElement()) {
+            XSTypeDefinition td = element().getTypeDefinition();
+            if (td instanceof XSComplexTypeDecl t) {
+                return t;
+            }
+        }
+        else if (isType() && term instanceof XSComplexTypeDecl t) {
+            return t;
+        }
+        return null;
+    }
+    
+    private XSParticle getComplexContent(XSTypeDefinition td) {
+        if (td instanceof XSComplexTypeDecl t) {
+            return t.getParticle();
+        }
+        return null;
+    }
+    
+    public boolean isRepeating() {
+        return maxOccurs > 1 || maxOccurs == -1;
+    }
+    
+    private void addOccursLabel() {
+        if (maxOccurs == 0 || maxOccurs == 1) {
+            return;
+        }
+        Text occLabel = new Text(String.format("%d..%s", minOccurs, maxOccurs > 0 ? String.valueOf(maxOccurs): "\u221E"));
+        control.addOccursLabel(occLabel);
+    }
+    
+    private void addAnnotation() {
+        if (!options().showAnnotations.get())
+            return;
+        XSAnnotation xsAnnot = isElement() ?  element().getAnnotation() :
+                isGroup() ? groupAnnotation() : (isAny() ? any().getAnnotation() : getTypeAnnotation());
+        String text;
+        if (xsAnnot != null && (text = AnnotationExtractor.extract(xsAnnot.getAnnotationString()))!= null) {
+            control.addAnnot(text);
+        }
+    }
+    
+    //for a named group the annotation lives on the definition; fall back to the compositor's
+    private XSAnnotation groupAnnotation() {
+        XSModelGroupDefinition d = groupDefinition();
+        if (d != null && d.getAnnotation() != null)
+            return d.getAnnotation();
+        return group().getAnnotation();
+    }
 
-	private XSAnnotation getTypeAnnotation() {
-	    if (term instanceof XSComplexTypeDecl t) {
-	        XSObjectList annotations = t.getAnnotations();
-	        if (!annotations.isEmpty())
-	            return (XSAnnotation) annotations.get(0);
-	    }
+    private XSAnnotation getTypeAnnotation() {
+        if (term instanceof XSComplexTypeDecl t) {
+            XSObjectList annotations = t.getAnnotations();
+            if (!annotations.isEmpty())
+                return (XSAnnotation) annotations.get(0);
+        }
         return null;
     }
 
     public void reset() {
-		control.getChildren().clear();
-		childNodes.clear();
-		isOpen = false;
-		connEdges = null;
-		typeRectangle = null;
-		control.getChildren().add(label);
-		addOccursLabel();
-		addAnnotation();
-		label.resetOpenControl(hasXsdChildren());
+        control.getChildren().clear();
+        childNodes.clear();
+        isOpen = false;
+        connEdges = null;
+        typeRectangle = null;
+        control.getChildren().add(label);
+        addOccursLabel();
+        addAnnotation();
+        label.resetOpenControl(hasXsdChildren());
         if (label.getOnClickControl() != null) {
             label.getOnClickControl().setOnMouseClicked(this::onPlusClicked);
         }
-	}
-	
-	
+    }
+    
+    
 
-	public XsdTreeView getParentLayout() {
-		return parentLayout;
-	}
+    public XsdTreeView getParentLayout() {
+        return parentLayout;
+    }
 
-	public NodeLabel getLabel() {
-		return label;
-	}
-	
-	public double getLabelHeight() {
-		return label.getHeight();
-	}
+    public NodeLabel getLabel() {
+        return label;
+    }
+    
+    public double getLabelHeight() {
+        return label.getHeight();
+    }
 
-	private Options options() {
-		return getParentLayout().getOptions();
-	}
+    private Options options() {
+        return getParentLayout().getOptions();
+    }
 
-	@Override
-	public String toString() {
-		return String.format("'%s', open: %b, children num: %d", label.getText(), isOpen, childNodes.size());
-	}
-	
-	private class NodeControl extends VBox {
-    	//vbox content:
-    	//label
-    	//occurs
-    	//annotation
-	    private Text annot;
-	    
-    	public NodeControl() {
+    @Override
+    public String toString() {
+        return String.format("'%s', open: %b, children num: %d", label.getText(), isOpen, childNodes.size());
+    }
+    
+    private class NodeControl extends VBox {
+        //vbox content:
+        //label
+        //occurs
+        //annotation
+        private Text annot;
+        
+        public NodeControl() {
             setFillWidth(false);
         }
-    	//void addLabel() {
-    	//    getChildren().add(label);
-    	//}
-    	
-		void addOccursLabel(Text occLabel) {
-    		getChildren().add(occLabel);
-    		VBox.setMargin(occLabel, new Insets(0, 0, 0, 6));
-    	}
-    	
-    	public void addAnnot(String text) {
+        //void addLabel() {
+        //    getChildren().add(label);
+        //}
+        
+        void addOccursLabel(Text occLabel) {
+            getChildren().add(occLabel);
+            VBox.setMargin(occLabel, new Insets(0, 0, 0, 6));
+        }
+        
+        public void addAnnot(String text) {
             annot = new Text(text);
             //annot.setTextAlignment(TextAlignment.LEFT);
             annot.getStyleClass().add("annotation");
-			getChildren().add(annot);
-			VBox.setMargin(annot, new Insets(6, 0, 0, 0));
-		}
+            getChildren().add(annot);
+            VBox.setMargin(annot, new Insets(6, 0, 0, 0));
+        }
 
-    	@Override
-    	protected double computeMinWidth(double height) {
-    	    return computePrefWidth(height);
-    	}
-    	
-    	@Override
-    	protected double computePrefWidth(double height) {
-    		fixAnnotationWrap();
-    		double ret = super.computePrefWidth(height);
-    		return ret;
-    		
-    	}
-    	
-    	//can only be called during layout pass
-    	private void fixAnnotationWrap() {
-    		if (annot != null) {
-    			double prefWidth = Double.max(ANNOTATION_WRAP, label.prefWidth(-1));
-    			annot.setWrappingWidth(prefWidth);
-    		}
-    	}
+        @Override
+        protected double computeMinWidth(double height) {
+            return computePrefWidth(height);
+        }
+        
+        @Override
+        protected double computePrefWidth(double height) {
+            fixAnnotationWrap();
+            double ret = super.computePrefWidth(height);
+            return ret;
+            
+        }
+        
+        //can only be called during layout pass
+        private void fixAnnotationWrap() {
+            if (annot != null) {
+                double prefWidth = Double.max(ANNOTATION_WRAP, label.prefWidth(-1));
+                annot.setWrappingWidth(prefWidth);
+            }
+        }
 
     }
 
@@ -584,21 +696,21 @@ public class XsdTreeNode extends TreeNodeControl {
     //TreeNodeControl
     /////////////////////
     @Override
-	public boolean isOpen() {
-		return isOpen;
-	}
+    public boolean isOpen() {
+        return isOpen;
+    }
 
 
-	@Override
-	Region control() {
-		return control;
-	}
+    @Override
+    Region control() {
+        return control;
+    }
 
-	@Override
-	boolean isOptional() {
-		return minOccurs == 0;
-	}
-	
+    @Override
+    boolean isOptional() {
+        return minOccurs == 0;
+    }
+    
     @Override
     public void layoutSubstEdges(double labelHeight) {
         if (substEdges != null) {
